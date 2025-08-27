@@ -4,102 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morgan Lucero</title>
-
-    <!-- Correct CSS path (lowercase folder name) -->
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="Background">
+<body>
 
-    <!-- Navbar -->
-    <div class="Navbar">
-        <a class="active" href="#Home">Home</a>
-        <a href="#About">About</a>
-        <a href="#GitHub">GitHub</a>
-        <a href="#Contact">Contact</a>
-    </div>
+<!-- NAVBAR -->
+<div class="Navbar">
+    <a class="active" href="#Home">Home</a>
+    <a href="#About">About</a>
+    <a href="#GitHub">GitHub</a>
+    <a href="#Contact">Contact</a>
+</div>
 
-    <br><br>
-
-    <!-- Background video -->
-    <div id="Home">
-        <video autoplay muted loop id="Video">
-            <source src="images/video.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video>
-    </div>
-
-    <!-- Video text -->
+<!-- VIDEO BACKGROUND -->
+<div id="Home">
+    <video autoplay muted loop id="Video">
+        <source src="images/video.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
     <div class="Video_Text">
         <h1 class="white-text">Morgan Lucero's Portfolio</h1>
-        <strong>
-            <p class="center">
-                <q>Wisdom is not a product of schooling but of the lifelong attempt to acquire it.</q>
-                <br> - Albert Einstein
-                <br><br>
-                My name is Morgan Lucero. Welcome to my portfolio website. On it you can review my background and experience.
-                <br><br>
-                Thank you!
-            </p>
-        </strong>
+        <p class="center"><q>Wisdom is not a product of schooling but of the lifelong attempt to acquire it.</q><br>- Albert Einstein</p>
+        <p class="center">Welcome! Review my background and experience. Thank you!</p>
     </div>
+</div>
 
-    <!-- About section -->
-    <div class="Row" id="About">
-        <div class="Column_2">
-            <img src="images/image-1.jpg" alt="Ethereal colorful code image">
-        </div>
-        <div class="Column_1">
-            <h1>About</h1>
-            <p>
-                I am a US Army Veteran with the goal to work in the Cyber Security field! As a husband and father of two, I love to spend time with my family, camping, going to the beach, kayaking and hiking.
-                <br><br>
-                I am a graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>’s Cyber Security Boot Camp, and trained and experienced in HTML and CSS. I have completed courses in Hardware and Network Security, Front End Development and Security, Back End Security, and Cyber Security.
-                <br><br>
-                I am passionate, and motivated to begin my career in the Cyber Security field. <a href="#Contact">Contact</a> me below!
-            </p>
-        </div>
+<!-- ABOUT -->
+<div class="Row" id="About">
+    <div class="Column_2">
+        <img src="images/image-1.jpg" alt="Ethereal colorful code image">
     </div>
-
-    <!-- GitHub section -->
-    <div class="Row" id="GitHub">
-        <div class="Column_1">
-            <h1>GitHub</h1>
-            <p>
-                You can view my coding projects on my GitHub profile here:
-            </p>
-            <p class="center"><a href="https://github.com/Saurendil" target="_blank">My GitHub Projects</a></p>
-        </div>
-        <div class="Column_2">
-            <a href="https://github.com/Saurendil" target="_blank"><img src="images/github-1.png" alt="GitHub Logo"></a>
-        </div>
+    <div class="Column_1">
+        <h1>About</h1>
+        <p>I am a US Army Veteran aiming for a career in Cyber Security. Graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>. Passionate and motivated to start my career. <a href="#Contact">Contact me</a>.</p>
     </div>
+</div>
 
-    <!-- Contact section -->
-    <div class="Row" id="Contact">
-        <div class="Column_2 Column_tall">
-            <img src="images/contact.jpg" alt="Contact_Image">
-        </div>
-        <div class="Column_1 Column_tall">
-            <h1>Contact</h1>
-            <form action="" method="POST">
-                <label>Name:</label>
-                <input type="text" placeholder="Please enter your name here">
-                <label>Email:</label>
-                <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                <label>Message:</label>
-                <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-                <input type="submit" value="SUBMIT">
-            </form>
-        </div>
+<!-- GITHUB -->
+<div class="Row" id="GitHub">
+    <div class="Column_1">
+        <h1>GitHub</h1>
+        <p class="center"><a href="https://github.com/Saurendil" target="_blank">My Github Projects</a></p>
     </div>
+    <div class="Column_2">
+        <a href="https://github.com/Saurendil" target="_blank"><img src="images/github-1.png" alt="GitHub Logo"></a>
+    </div>
+</div>
 
-    <!-- Footer section -->
-    <footer>
-        <p class="center">&copy; Prosper Consulting Inc., <a href="https://www.learncodinganywhere.com/" target="_blank">The Tech Academy</a></p>
-    </footer>
+<!-- CONTACT -->
+<div class="Row" id="Contact">
+    <div class="Column_2 Column_tall">
+        <img src="images/contact.jpg" alt="Contact Image">
+    </div>
+    <div class="Column_1 Column_tall">
+        <h1>Contact</h1>
+        <form>
+            <label>Name:</label>
+            <input type="text" placeholder="Please enter your name here">
+            <label>Email:</label>
+            <input type="text" placeholder="Please enter your email here">
+            <label>Message:</label>
+            <input type="text" placeholder="Please write your message here">
+            <input type="submit" value="SUBMIT">
+        </form>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p class="center">&copy; Prosper Consulting Inc., <a href="https://www.learncodinganywhere.com/" target="_blank">The Tech Academy</a></p>
+</footer>
 
 </body>
 </html>
