@@ -3,138 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cybersecurity Projects</title>
+  <title>My Cybersecurity Projects</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    .project-index {
-      margin: 3rem auto;
-      text-align: center;
-    }
-    .project-index h2 {
-      font-size: 2.5rem;
-      text-shadow: 0 0 15px #00e6e6, 0 0 25px #b405b4;
-      margin-bottom: 1.5rem;
-    }
-    .project-index ul {
-      list-style: none;
-      padding: 0;
-    }
-    .project-index li {
-      margin: 1rem 0;
-    }
-    .project-index a {
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-decoration: none;
-      color: #00e6e6;
-      text-shadow: 0 0 10px #00e6e6, 0 0 20px #b405b4;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-    .project-index a:hover {
-      color: #b405b4;
-      transform: scale(1.1);
-    }
-    .placeholder {
-      background: #333;
-      color: #aaa;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 200px;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-  </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-    </ul>
-  </nav>
+
+  <!-- Navbar -->
+  <div class="Navbar">
+    <a href="index.html" class="active">Home</a>
+  </div>
 
   <!-- Header -->
   <header>
     <h1>Cybersecurity Projects</h1>
-    <p>A showcase of my defensive and offensive security work, including malware analysis, Wireshark traffic review, and penetration testing challenges.</p>
+    <p>Hands-on offensive and defensive security work from my live project experience.</p>
   </header>
 
-  <!-- Defensive Index -->
-  <div class="project-index">
-    <h2>Defensive Projects Index</h2>
-    <ul>
-      <li><a href="#project-wireshark">Wireshark Malware Traffic Analysis</a></li>
-      <li><a href="#project-powershell">PowerShell Keylogger Analysis</a></li>
-    </ul>
-  </div>
-
-  <!-- Offensive Index -->
-  <div class="project-index">
-    <h2>Offensive Projects Index</h2>
-    <ul>
-      <li><a href="#project-sql">SQL Injection Attack</a></li>
-      <li><a href="#project-basket">Shopping Basket Exploit</a></li>
-      <li><a href="#project-review">Zero-Star Review Injection</a></li>
-      <li><a href="#project-bruteforce">Brute Force Admin Login</a></li>
-      <li><a href="#project-json">Hidden JSON File Access</a></li>
-    </ul>
-  </div>
-
   <!-- Defensive Projects -->
-  <main>
-    <section id="project-wireshark" class="project-card">
-      <img src="images/projects/wireshark.png" alt="Wireshark Screenshot">
-      <h3>Wireshark Malware Traffic Analysis</h3>
-      <p>I analyzed a PCAP file using Wireshark to uncover malware communications. Suspicious connections to malicious domains were identified. The investigation revealed a Trojan/backdoor infection. This project reinforced my ability to detect and trace malicious network traffic.</p>
-    </section>
+  <section id="defensive">
+    <h2 class="section-title">Defensive Projects</h2>
+    <div class="project-grid">
 
-    <section id="project-powershell" class="project-card">
-      <div class="placeholder">[Screenshot Placeholder – PowerShell Analysis]</div>
-      <h3>PowerShell Keylogger Analysis</h3>
-      <p>I examined a malicious PowerShell script disguised as a keylogger. The script exfiltrated keystrokes via SMTP to an attacker’s email. Hardcoded credentials and DLL imports were uncovered during review. This project highlighted how attackers abuse PowerShell for persistence and data theft.</p>
-    </section>
+      <div class="project-card">
+        <img src="images/projects/wireshark.png" alt="Wireshark Traffic Analysis">
+        <h3>Find the Culprit – Malware Network Traffic Analysis</h3>
+        <p>Analyzed suspicious PCAP logs to trace malware infection on a Windows host. Discovered C2 domains and confirmed the malware type as a Trojan/backdoor.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="placeholder">[No Screenshot Available]</div>
+        <h3>PowerShell Script Analysis</h3>
+        <p>Investigated a malicious PowerShell keylogger script that exfiltrated keystrokes via SMTP. Found hardcoded credentials and DLL imports used for persistence.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="images/projects/coffee.png" alt="Coffee Malware Analysis">
+        <h3>Coffee Malware Incident</h3>
+        <p>Examined infected Windows logs showing suspicious outbound connections. Identified malware behavior and provided mitigation recommendations.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="images/projects/linux-server.png" alt="Linux Server Log Analysis">
+        <h3>Linux Server Log Analysis</h3>
+        <p>Reviewed compromised Linux server logs. Detected malicious SSH login attempts and unusual system processes consistent with brute-force intrusion.</p>
+      </div>
+
+    </div>
+  </section>
 
   <!-- Offensive Projects -->
-    <section id="project-sql" class="project-card">
-      <img src="images/projects/sql-injection.png" alt="SQL Injection Screenshot">
-      <h3>SQL Injection Attack</h3>
-      <p>In this project, I exploited a vulnerable login form using SQL injection. By manipulating query logic, I bypassed authentication and accessed restricted data. The test demonstrated the dangers of unsanitized inputs and poor query handling. This reinforced the importance of parameterized queries in defensive coding.</p>
-    </section>
+  <section id="offensive">
+    <h2 class="section-title">Offensive Projects</h2>
+    <div class="project-grid">
 
-    <section id="project-basket" class="project-card">
-      <img src="images/projects/shopping-basket.png" alt="Basket Exploit Screenshot">
-      <h3>Shopping Basket Exploit</h3>
-      <p>I intercepted HTTP requests to gain access to another user’s shopping basket. Using Burp Suite, I manipulated session tokens and bypassed access controls. This allowed me to view and alter another user’s private shopping data. The exercise highlighted broken access control as a critical OWASP vulnerability.</p>
-    </section>
+      <div class="project-card">
+        <img src="images/projects/offensive-1.png" alt="OWASP Juice Shop Offensive Challenge">
+        <h3>OWASP Juice Shop Offensive 1</h3>
+        <p>Performed SQL injection and login bypass attacks on Juice Shop. Extracted sensitive data and gained unauthorized access to customer accounts.</p>
+      </div>
 
-    <section id="project-review" class="project-card">
-      <img src="images/projects/review-injection.png" alt="Zero Star Review Screenshot">
-      <h3>Zero-Star Review Injection</h3>
-      <p>For this challenge, I modified HTTP requests to submit a zero-star product review. The frontend blocked this input, but intercepting traffic allowed the request to bypass validation. This exposed a lack of server-side enforcement for input constraints. It reinforced the need for backend validation alongside frontend controls.</p>
-    </section>
+      <div class="project-card">
+        <img src="images/projects/offensive-2.png" alt="Juice Shop Exploit Screenshot">
+        <h3>OWASP Juice Shop Offensive 2</h3>
+        <p>Executed privilege escalation and admin account takeover. Showed risks of weak password policies and missing account protections.</p>
+      </div>
 
-    <section id="project-bruteforce" class="project-card">
-      <img src="images/projects/bruteforce.png" alt="Brute Force Screenshot">
-      <h3>Brute Force Admin Login</h3>
-      <p>I used Burp Suite with a password wordlist to brute force the admin login. Once credentials were discovered, I reset the admin password to demonstrate full account takeover. This scenario revealed how weak password policies increase attack surface. It underscored the need for account lockouts, MFA, and monitoring to stop brute force attempts.</p>
-    </section>
+      <div class="project-card">
+        <img src="images/projects/offensive-3.png" alt="Offensive Project 3 Screenshot">
+        <h3>OWASP Juice Shop Offensive 3</h3>
+        <p>Carried out cross-site scripting (XSS) payload injection. Demonstrated how lack of input sanitization can expose user sessions to theft.</p>
+      </div>
 
-    <section id="project-json" class="project-card">
-      <div class="placeholder">[Screenshot Placeholder – Hidden JSON File]</div>
-      <h3>Hidden JSON File Access</h3>
-      <p>I discovered and accessed hidden documents within the Juice Shop environment. By using a null byte injection, I was able to retrieve sensitive JSON files. This revealed improper file access controls and directory traversal flaws. The project emphasized secure file path handling and validation as essential defenses.</p>
-    </section>
-  </main>
+      <div class="project-card">
+        <img src="images/projects/offensive-4.png" alt="Offensive Project 4 Screenshot">
+        <h3>OWASP Juice Shop Offensive 4</h3>
+        <p>Identified and exploited exposed endpoints via null byte injection. Bypassed access controls to retrieve restricted JSON data files.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="images/projects/offensive-5.png" alt="Offensive Project 5 Screenshot">
+        <h3>OWASP Juice Shop Offensive 5</h3>
+        <p>Exploited broken access control flaws in shopping basket functionality. Gained access to another user’s basket and modified orders.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="images/projects/offensive-6.png" alt="Offensive Project 6 Screenshot">
+        <h3>OWASP Juice Shop Offensive 6</h3>
+        <p>Manipulated review submission forms. Successfully posted a malicious 0-star product review by bypassing client-side validation.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="images/projects/offensive-7.png" alt="Offensive Project 7 Screenshot">
+        <h3>OWASP Juice Shop Offensive 7</h3>
+        <p>Discovered forgotten backup files on server. Retrieved hidden configuration data and escalated privileges by leveraging insecure storage.</p>
+      </div>
+
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Morgan Lucero. All Rights Reserved.</p>
   </footer>
+
 </body>
 </html>
