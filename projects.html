@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cybersecurity Projects – Defensive</title>
+  <title>Cybersecurity Projects</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
   <style>
     html {
-      scroll-behavior: smooth; /* enables smooth scrolling */
+      scroll-behavior: smooth;
     }
     .project-index {
       margin: 3rem auto;
@@ -61,57 +61,74 @@
 
   <!-- Header -->
   <header>
-    <h1>Defensive Cybersecurity Projects</h1>
-    <p>Hands-on investigations in malware analysis, network traffic, and system logs.</p>
+    <h1>Cybersecurity Projects</h1>
+    <p>A showcase of my defensive and offensive security work, including malware analysis, Wireshark traffic review, and penetration testing challenges.</p>
   </header>
 
   <!-- Defensive Index -->
   <div class="project-index">
     <h2>Defensive Projects Index</h2>
     <ul>
-      <li><a href="#project-wireshark">Find the Culprit – Malware Traffic Analysis</a></li>
-      <li><a href="#project-email">Malicious Email Analysis</a></li>
-      <li><a href="#project-powershell">PowerShell Script Analysis</a></li>
-      <li><a href="#project-linux">Linux Log Review</a></li>
+      <li><a href="#project-wireshark">Wireshark Malware Traffic Analysis</a></li>
+      <li><a href="#project-powershell">PowerShell Keylogger Analysis</a></li>
     </ul>
   </div>
 
-  <!-- Defensive Projects Section -->
+  <!-- Offensive Index -->
+  <div class="project-index">
+    <h2>Offensive Projects Index</h2>
+    <ul>
+      <li><a href="#project-sql">SQL Injection Attack</a></li>
+      <li><a href="#project-basket">Shopping Basket Exploit</a></li>
+      <li><a href="#project-review">Zero-Star Review Injection</a></li>
+      <li><a href="#project-bruteforce">Brute Force Admin Login</a></li>
+      <li><a href="#project-json">Hidden JSON File Access</a></li>
+    </ul>
+  </div>
+
+  <!-- Defensive Projects -->
   <main>
     <section id="project-wireshark" class="project-card">
       <img src="images/projects/wireshark.png" alt="Wireshark Screenshot">
-      <h3>Find the Culprit – Malware Traffic Analysis</h3>
-      <p>In this project, I investigated a PCAP file to uncover signs of compromise. 
-         Using Wireshark, I tracked suspicious DNS and HTTP traffic tied to malware activity. 
-         The analysis revealed a Windows host communicating with malicious domains. 
-         I confirmed the infection type as a Trojan/backdoor targeting system persistence.</p>
-    </section>
-
-    <section id="project-email" class="project-card">
-      <img src="images/projects/email-analysis.png" alt="Malicious Email Screenshot">
-      <h3>Malicious Email Analysis</h3>
-      <p>This project focused on dissecting a phishing email with a suspicious attachment. 
-         I examined email headers, sender IPs, and embedded links to trace potential spoofing. 
-         The attachment was flagged as a delivery method for credential theft. 
-         The findings reinforced detection techniques for social engineering attacks.</p>
+      <h3>Wireshark Malware Traffic Analysis</h3>
+      <p>I analyzed a PCAP file using Wireshark to uncover malware communications. Suspicious connections to malicious domains were identified. The investigation revealed a Trojan/backdoor infection. This project reinforced my ability to detect and trace malicious network traffic.</p>
     </section>
 
     <section id="project-powershell" class="project-card">
       <div class="placeholder">[Screenshot Placeholder – PowerShell Analysis]</div>
-      <h3>PowerShell Script Analysis</h3>
-      <p>I reverse engineered a malicious PowerShell script designed as a keylogger. 
-         The script exfiltrated keystrokes via SMTP to an attacker’s email account. 
-         It contained hardcoded credentials and DLL imports for stealthy persistence. 
-         This exercise demonstrated the importance of script auditing in endpoint security.</p>
+      <h3>PowerShell Keylogger Analysis</h3>
+      <p>I examined a malicious PowerShell script disguised as a keylogger. The script exfiltrated keystrokes via SMTP to an attacker’s email. Hardcoded credentials and DLL imports were uncovered during review. This project highlighted how attackers abuse PowerShell for persistence and data theft.</p>
     </section>
 
-    <section id="project-linux" class="project-card">
-      <img src="images/projects/linux-log.png" alt="Linux Logs Screenshot">
-      <h3>Linux Log Review</h3>
-      <p>For this project, I analyzed Linux log files to identify unusual system behavior. 
-         Suspicious login attempts, privilege escalation errors, and cron job entries were discovered. 
-         The timeline of events suggested a brute force attempt followed by lateral movement. 
-         This reinforced my skills in log analysis for incident detection and response.</p>
+  <!-- Offensive Projects -->
+    <section id="project-sql" class="project-card">
+      <img src="images/projects/sql-injection.png" alt="SQL Injection Screenshot">
+      <h3>SQL Injection Attack</h3>
+      <p>In this project, I exploited a vulnerable login form using SQL injection. By manipulating query logic, I bypassed authentication and accessed restricted data. The test demonstrated the dangers of unsanitized inputs and poor query handling. This reinforced the importance of parameterized queries in defensive coding.</p>
+    </section>
+
+    <section id="project-basket" class="project-card">
+      <img src="images/projects/shopping-basket.png" alt="Basket Exploit Screenshot">
+      <h3>Shopping Basket Exploit</h3>
+      <p>I intercepted HTTP requests to gain access to another user’s shopping basket. Using Burp Suite, I manipulated session tokens and bypassed access controls. This allowed me to view and alter another user’s private shopping data. The exercise highlighted broken access control as a critical OWASP vulnerability.</p>
+    </section>
+
+    <section id="project-review" class="project-card">
+      <img src="images/projects/review-injection.png" alt="Zero Star Review Screenshot">
+      <h3>Zero-Star Review Injection</h3>
+      <p>For this challenge, I modified HTTP requests to submit a zero-star product review. The frontend blocked this input, but intercepting traffic allowed the request to bypass validation. This exposed a lack of server-side enforcement for input constraints. It reinforced the need for backend validation alongside frontend controls.</p>
+    </section>
+
+    <section id="project-bruteforce" class="project-card">
+      <img src="images/projects/bruteforce.png" alt="Brute Force Screenshot">
+      <h3>Brute Force Admin Login</h3>
+      <p>I used Burp Suite with a password wordlist to brute force the admin login. Once credentials were discovered, I reset the admin password to demonstrate full account takeover. This scenario revealed how weak password policies increase attack surface. It underscored the need for account lockouts, MFA, and monitoring to stop brute force attempts.</p>
+    </section>
+
+    <section id="project-json" class="project-card">
+      <div class="placeholder">[Screenshot Placeholder – Hidden JSON File]</div>
+      <h3>Hidden JSON File Access</h3>
+      <p>I discovered and accessed hidden documents within the Juice Shop environment. By using a null byte injection, I was able to retrieve sensitive JSON files. This revealed improper file access controls and directory traversal flaws. The project emphasized secure file path handling and validation as essential defenses.</p>
     </section>
   </main>
 
