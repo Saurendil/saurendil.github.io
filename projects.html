@@ -4,58 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Cybersecurity Projects</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body>
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<body class="Background">
+
+  <!-- Navbar -->
+  <div class="Navbar">
+    <a href="index.html">Home</a>
+    <a class="active" href="projects.html">Projects</a>
+    <a href="#Contact">Contact</a>
+  </div>
+
+  <br><br><br>
 
   <!-- Header -->
   <header>
-    <h1>Cybersecurity Projects</h1>
-    <p>Hands-on offensive and defensive security work from my live project experience.</p>
+    <h1 class="white-text">Cybersecurity Projects</h1>
+    <p class="center">Hands-on offensive and defensive security work from my live project experience.</p>
   </header>
 
   <!-- Main content -->
- <main>
-  <h2 class="section-title">Cybersecurity Projects</h2>
-  <div class="project-grid">
+  <main>
+    <h2 class="section-title">Highlighted Work</h2>
+    <div class="project-grid">
 
-    <div class="project-card">
-      <img src="images/projects/wireshark.png" alt="Wireshark Screenshot">
-      <h3>Find the Culprit – Malware Network Traffic Analysis</h3>
-      <p>Analyzed a PCAP file to identify a Windows host that had been compromised. Traced malicious traffic to suspicious domains and confirmed malware type as a Trojan/backdoor.</p>
+      <div class="project-card">
+        <img src="images/wireshark.png" alt="Wireshark Screenshot">
+        <h3>Find the Culprit – Malware Network Traffic Analysis</h3>
+        <p>Analyzed a PCAP file to identify a Windows host that had been compromised. 
+        Traced malicious traffic to suspicious domains and confirmed malware type as a Trojan/backdoor.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="images/powershell-analysis.png" alt="PowerShell Screenshot">
+        <h3>PowerShell Script Analysis</h3>
+        <p>Investigated a malicious PowerShell keylogger script that exfiltrated keystrokes via SMTP. 
+        Discovered hardcoded email, password, and DLL imports used for persistence.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="images/offensive-1.png" alt="Juice Shop Exploit Screenshot">
+        <h3>OWASP Juice Shop Exploitation</h3>
+        <p>Completed multiple penetration testing challenges including SQL injection, CAPTCHA bypass, 
+        and privilege escalation. Reinforced OWASP Top 10 knowledge.</p>
+      </div>
+
     </div>
-
-    <div class="project-card">
-      <img src="images/projects/powershell-analysis.png" alt="PowerShell Screenshot">
-      <h3>PowerShell Script Analysis</h3>
-      <p>Investigated a malicious PowerShell keylogger script that exfiltrated keystrokes via SMTP. Discovered hardcoded email, password, and DLL imports used for persistence.</p>
-    </div>
-
-    <div class="project-card">
-      <img src="images/projects/offensive-1.png" alt="Juice Shop Exploit Screenshot">
-      <h3>OWASP Juice Shop Exploitation</h3>
-      <p>Completed multiple penetration testing challenges including SQL injection, CAPTCHA bypass, and privilege escalation. Reinforced OWASP Top 10 knowledge.</p>
-    </div>
-
-    <!-- Add more project cards as needed -->
-
-  </div>
-</main>
-
+  </main>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Morgan Lucero. All Rights Reserved.</p>
+    <p class="center">&copy; 2025 Morgan Lucero. All Rights Reserved.</p>
   </footer>
 </body>
 </html>
-
