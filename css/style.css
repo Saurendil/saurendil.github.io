@@ -327,4 +327,43 @@ form {
     font-family: 'Quicksand', Optima;
     color: white;
 }
+/* === Projects Page Styles === */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.project-card {
+  background: #1e1e1e; /* matches dark theme */
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.project-card h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #00e6e6; /* neon accent */
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+
 /***** END OF CONTACT FORM STYLING *****/
