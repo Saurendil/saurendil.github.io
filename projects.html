@@ -24,27 +24,33 @@
   </header>
 
   <!-- Main content -->
-  <main>
-    <section>
-      <h2>Find the Culprit – Malware Network Traffic Analysis</h2>
-      <p>In this project, I analyzed a PCAP file to identify a Windows host that had been compromised...</p>
-      <img src="images/wireshark.png" alt="Wireshark PCAP Screenshot">
-    </section>
+ <main>
+  <h2 class="section-title">Cybersecurity Projects</h2>
+  <div class="project-grid">
 
-    <section>
-      <h2>PowerShell Script Analysis</h2>
-      <p>I examined a suspicious PowerShell script configured to log keystrokes and exfiltrate data...</p>
-      <img src="images/powershell-analysis.png" alt="PowerShell Script Screenshot">
-    </section>
+    <div class="project-card">
+      <img src="images/projects/wireshark.png" alt="Wireshark Screenshot">
+      <h3>Find the Culprit – Malware Network Traffic Analysis</h3>
+      <p>Analyzed a PCAP file to identify a Windows host that had been compromised. Traced malicious traffic to suspicious domains and confirmed malware type as a Trojan/backdoor.</p>
+    </div>
 
-    <section>
-      <h2>OWASP Juice Shop Exploitation</h2>
-      <p>I completed several penetration testing challenges, including SQL injection, CAPTCHA bypass, and privilege escalation...</p>
-      <img src="images/offensive-1.png" alt="Juice Shop Exploit Screenshot">
-    </section>
+    <div class="project-card">
+      <img src="images/projects/powershell-analysis.png" alt="PowerShell Screenshot">
+      <h3>PowerShell Script Analysis</h3>
+      <p>Investigated a malicious PowerShell keylogger script that exfiltrated keystrokes via SMTP. Discovered hardcoded email, password, and DLL imports used for persistence.</p>
+    </div>
 
-    <!-- Add more project sections as needed -->
-  </main>
+    <div class="project-card">
+      <img src="images/projects/offensive-1.png" alt="Juice Shop Exploit Screenshot">
+      <h3>OWASP Juice Shop Exploitation</h3>
+      <p>Completed multiple penetration testing challenges including SQL injection, CAPTCHA bypass, and privilege escalation. Reinforced OWASP Top 10 knowledge.</p>
+    </div>
+
+    <!-- Add more project cards as needed -->
+
+  </div>
+</main>
+
 
   <!-- Footer -->
   <footer>
