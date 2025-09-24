@@ -4,27 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Cybersecurity Projects</title>
-  <link rel="stylesheet" href="style.css"> <!-- use your existing CSS -->
+  <link rel="stylesheet" href="style.css"> <!-- pulls in your existing styles -->
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
   <header>
     <h1>Cybersecurity Projects</h1>
+    <p>Hands-on offensive and defensive security work from my live project experience.</p>
   </header>
 
+  <!-- Main content -->
   <main>
     <section>
       <h2>Find the Culprit – Malware Network Traffic Analysis</h2>
-      <p>In this project, I analyzed a PCAP file to identify...</p>
-      <img src="images/projects/wireshark.png" alt="Wireshark Screenshot">
+      <p>In this project, I analyzed a PCAP file to identify a Windows host that had been compromised...</p>
+      <img src="images/projects/wireshark.png" alt="Wireshark PCAP Screenshot">
     </section>
 
     <section>
       <h2>PowerShell Script Analysis</h2>
-      <p>I examined a suspicious PowerShell script that...</p>
-      <img src="images/projects/powershell-analysis.png" alt="PowerShell Analysis Screenshot">
+      <p>I examined a suspicious PowerShell script configured to log keystrokes and exfiltrate data...</p>
+      <img src="images/projects/powershell-analysis.png" alt="PowerShell Script Screenshot">
     </section>
 
-    <!-- repeat for each project -->
+    <section>
+      <h2>OWASP Juice Shop Exploitation</h2>
+      <p>I completed several penetration testing challenges, including SQL injection, CAPTCHA bypass, and privilege escalation...</p>
+      <img src="images/projects/offensive-1.png" alt="Juice Shop Exploit Screenshot">
+    </section>
+
+    <!-- Add more project sections as needed -->
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Morgan Lucero. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
+
