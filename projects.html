@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Cybersecurity Projects</title>
+  <title>Cybersecurity Projects</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Navbar -->
-  <div class="Navbar">
-    <a href="index.html" class="active">Home</a>
-  </div>
+  <!-- Navigation -->
+  <nav class="Navbar">
+    <a href="index.html">Home</a>
+  </nav>
 
   <!-- Header -->
   <header>
@@ -20,92 +19,81 @@
     <p>Hands-on offensive and defensive security work from my live project experience.</p>
   </header>
 
-  <!-- Defensive Projects -->
-  <section id="defensive">
-    <h2 class="section-title">Defensive Projects</h2>
-    <div class="project-grid">
+  <!-- Project Index -->
+  <div class="project-index">
+    <h2>Explore My Projects</h2>
+    <div>
+      <a href="#defensive">Defensive Projects</a>
+      <a href="#offensive">Offensive Projects</a>
+    </div>
+  </div>
 
+  <!-- Main content -->
+  <main>
+    <!-- Defensive Projects -->
+    <h2 id="defensive" class="section-title">Defensive Projects</h2>
+    <div class="project-grid">
       <div class="project-card">
-        <img src="images/projects/wireshark.png" alt="Wireshark Traffic Analysis">
+        <img src="images/projects/wireshark.png" alt="Wireshark Screenshot">
         <h3>Find the Culprit – Malware Network Traffic Analysis</h3>
-        <p>Analyzed suspicious PCAP logs to trace malware infection on a Windows host. Discovered C2 domains and confirmed the malware type as a Trojan/backdoor.</p>
+        <p>
+          Investigated a suspicious PCAP file containing unusual network traffic. 
+          Identified a Windows host compromised by malware after analyzing NBNS, LLMNR, and DNS requests. 
+          Mapped communications to suspicious domains tied to known C2 servers. 
+          Confirmed the malware as a Trojan/backdoor with persistence behaviors. 
+          Documented key IOCs including IPs, domains, and HTTP requests. 
+          This project reinforced my ability to perform forensic network analysis with Wireshark and tshark.
+        </p>
       </div>
 
       <div class="project-card">
-        <div class="placeholder">[No Screenshot Available]</div>
+        <img src="images/projects/powershell-placeholder.png" alt="PowerShell Placeholder">
         <h3>PowerShell Script Analysis</h3>
-        <p>Investigated a malicious PowerShell keylogger script that exfiltrated keystrokes via SMTP. Found hardcoded credentials and DLL imports used for persistence.</p>
+        <p>
+          Reverse engineered a malicious PowerShell script designed to record keystrokes. 
+          Discovered hardcoded Gmail credentials used to exfiltrate logs via SMTP on port 587. 
+          Found DLL imports from user32.dll enabling keystroke monitoring with GetAsyncKeyState. 
+          Identified the storage of keystrokes in a temp folder before exfiltration. 
+          Wrote a defensive report highlighting script functionality and security risks. 
+          This analysis developed my skills in script analysis and malware behavior mapping.
+        </p>
       </div>
-
-      <div class="project-card">
-        <img src="images/projects/coffee.png" alt="Coffee Malware Analysis">
-        <h3>Coffee Malware Incident</h3>
-        <p>Examined infected Windows logs showing suspicious outbound connections. Identified malware behavior and provided mitigation recommendations.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="images/projects/linux-server.png" alt="Linux Server Log Analysis">
-        <h3>Linux Server Log Analysis</h3>
-        <p>Reviewed compromised Linux server logs. Detected malicious SSH login attempts and unusual system processes consistent with brute-force intrusion.</p>
-      </div>
-
     </div>
-  </section>
 
-  <!-- Offensive Projects -->
-  <section id="offensive">
-    <h2 class="section-title">Offensive Projects</h2>
+    <!-- Offensive Projects -->
+    <h2 id="offensive" class="section-title">Offensive Projects</h2>
     <div class="project-grid">
-
       <div class="project-card">
-        <img src="images/projects/offensive-1.png" alt="OWASP Juice Shop Offensive Challenge">
-        <h3>OWASP Juice Shop Offensive 1</h3>
-        <p>Performed SQL injection and login bypass attacks on Juice Shop. Extracted sensitive data and gained unauthorized access to customer accounts.</p>
+        <img src="images/projects/offensive-1.png" alt="Juice Shop Exploit Screenshot">
+        <h3>OWASP Juice Shop Exploitation</h3>
+        <p>
+          Completed multiple offensive security challenges using the OWASP Juice Shop vulnerable web app. 
+          Exploited SQL injection flaws to bypass authentication and extract sensitive data. 
+          Performed CAPTCHA bypass to demonstrate weaknesses in input validation. 
+          Escalated privileges to gain administrator access and manipulate application state. 
+          Gained real-world experience with web exploitation tools including Burp Suite. 
+          This project reinforced key OWASP Top 10 vulnerabilities and attack methodologies.
+        </p>
       </div>
 
       <div class="project-card">
-        <img src="images/projects/offensive-2.png" alt="Juice Shop Exploit Screenshot">
-        <h3>OWASP Juice Shop Offensive 2</h3>
-        <p>Executed privilege escalation and admin account takeover. Showed risks of weak password policies and missing account protections.</p>
+        <img src="images/projects/offensive-2.png" alt="Offensive Screenshot">
+        <h3>Advanced Offensive Security Challenges</h3>
+        <p>
+          Solved hands-on challenges involving authentication bypass and file manipulation. 
+          Applied logic flaws to access restricted resources and escalate privileges. 
+          Demonstrated parameter tampering attacks to bypass restrictions. 
+          Analyzed server responses to craft payloads that revealed hidden data. 
+          Reinforced penetration testing methodology through repeatable techniques. 
+          These exercises built practical skills in simulating adversarial attacks.
+        </p>
       </div>
-
-      <div class="project-card">
-        <img src="images/projects/offensive-3.png" alt="Offensive Project 3 Screenshot">
-        <h3>OWASP Juice Shop Offensive 3</h3>
-        <p>Carried out cross-site scripting (XSS) payload injection. Demonstrated how lack of input sanitization can expose user sessions to theft.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="images/projects/offensive-4.png" alt="Offensive Project 4 Screenshot">
-        <h3>OWASP Juice Shop Offensive 4</h3>
-        <p>Identified and exploited exposed endpoints via null byte injection. Bypassed access controls to retrieve restricted JSON data files.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="images/projects/offensive-5.png" alt="Offensive Project 5 Screenshot">
-        <h3>OWASP Juice Shop Offensive 5</h3>
-        <p>Exploited broken access control flaws in shopping basket functionality. Gained access to another user’s basket and modified orders.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="images/projects/offensive-6.png" alt="Offensive Project 6 Screenshot">
-        <h3>OWASP Juice Shop Offensive 6</h3>
-        <p>Manipulated review submission forms. Successfully posted a malicious 0-star product review by bypassing client-side validation.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="images/projects/offensive-7.png" alt="Offensive Project 7 Screenshot">
-        <h3>OWASP Juice Shop Offensive 7</h3>
-        <p>Discovered forgotten backup files on server. Retrieved hidden configuration data and escalated privileges by leveraging insecure storage.</p>
-      </div>
-
     </div>
-  </section>
+  </main>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Morgan Lucero. All Rights Reserved.</p>
   </footer>
-
 </body>
 </html>
