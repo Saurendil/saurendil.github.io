@@ -45,9 +45,13 @@
         <h3>Find the Culprit – Malware Network Traffic Analysis</h3>
         <p>
           Analyzed a PCAP file in Wireshark to track a Windows host infected by malware. 
-          Identified suspicious domains and confirmed the attack involved a Trojan/backdoor. 
-          Delivered a structured incident report with IPs, hostnames, and observed tactics, 
-          techniques, and procedures (TTPs).
+          Identified suspicious domains, unusual SMB and DNS requests, and confirmed the 
+          attack involved a Trojan/backdoor. Created a full incident report documenting 
+          IPs, MAC addresses, hostnames, and exfiltration methods. 
+          Highlighted attacker persistence tactics and gave defensive recommendations 
+          such as implementing stricter egress filtering and DNS monitoring. 
+          Reinforced best practices for network forensics and detection of real-world 
+          malware activity.
         </p>
       </div>
 
@@ -59,9 +63,14 @@
         </div>
         <h3>Malware Deep Investigation</h3>
         <p>
-          A malicious email compromised the victim’s Windows host, exposing banking data. 
-          PCAP analysis revealed a Trojan/backdoor communicating with attacker domains. 
-          The host was isolated, IOCs blocked, and the system rebuilt from a trusted backup.
+           Investigated a malicious PowerShell keylogger script designed to capture keystrokes 
+          and exfiltrate them via SMTP. Discovered hardcoded email credentials, DLL imports, 
+          and persistence mechanisms such as registry modification. Broke down obfuscation, 
+          tracked file write operations, and identified clear indicators of compromise (IOCs). 
+          Documented how the script communicated with external mail servers and recommended 
+          mitigations including blocking outbound SMTP traffic, strengthening endpoint monitoring, 
+          and enforcing PowerShell execution policies. Reinforced my malware reverse engineering 
+          and detection skills in a defensive context.
         </p>
       </div>
 
@@ -79,11 +88,16 @@
         </div>
         <h3>OWASP Juice Shop Exploitation</h3>
         <p>
-          Consolidated penetration testing work across multiple Juice Shop vulnerabilities, 
-          including SQL injection, XSS, broken access control, weak passwords, 
-          forgotten backups, and insecure review flows. 
-          For each exploit, delivered proof-of-concept requests and developer-focused 
-          remediation steps aligned to the OWASP Top 10.
+          Completed penetration testing challenges in the OWASP Juice Shop application, 
+          targeting vulnerabilities across the OWASP Top 10. Successfully exploited SQL injection 
+          to bypass login authentication, performed stored XSS to trigger malicious scripts, 
+          and bypassed CAPTCHA mechanisms using automation. Identified weak credentials in 
+          authentication flows and retrieved forgotten backup files via path traversal. 
+          Discovered insecure review and rating systems that allowed manipulation of product 
+          reputations. For each exploit, created proof-of-concept payloads and recommended 
+          developer mitigations such as parameterized queries, stronger session management, 
+          and improved access controls. These exercises reinforced offensive testing methodology 
+          and improved my ability to map vulnerabilities to their corresponding mitigations.
         </p>
       </div>
 
