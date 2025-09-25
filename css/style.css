@@ -351,8 +351,30 @@ form {
   box-shadow: 0 0 20px rgba(0,230,230,0.8);
 }
 
+/* Projects button inside GitHub section */
+.project-button {
+  display: inline-block;
+  background: rgba(0,0,0,0.8);
+  color: #00e6e6;
+  padding: 12px 24px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #00e6e6;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,230,230,0.6);
+}
+
+.project-button:hover {
+  background: #00e6e6;
+  color: black;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(180,5,180,0.9);
+}
+
 
 /***** END PROJECT PAGE STYLING *****/
+
 
 
 
