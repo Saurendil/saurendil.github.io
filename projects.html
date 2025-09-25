@@ -2,204 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width" />
-  <title>Projects — Morgan Lucero</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cybersecurity Projects</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body class="Background">
 
-  <!-- Navbar (identical styling) -->
+  <!-- Navbar -->
   <div class="Navbar">
-    <a href="index.html">Home</a>
-    <a href="#offensive">Offensive</a>
-    <a href="#defensive">Defensive</a>
+      <a href="index.html">Home</a>
+      <a href="#defensive">Defensive</a>
+      <a href="#offensive">Offensive</a>
   </div>
 
-  <!-- Space under fixed navbar -->
-  <br><br>
+  <!-- Background video -->
+  <video autoplay muted loop id="Video">
+    <source src="images/video.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
 
-  <!-- Header text (same style as home) -->
+  <!-- Overlay text -->
   <div class="Video_Text">
-    <h1 class="white-text">Projects</h1>
-    <strong>
-      <p class="center">
-        Hands-on work grouped into Offensive and Defensive sections.  
+    <h1>Cybersecurity Projects</h1>
+    <p class="center">
+      Hands-on work in both <strong>Defensive Security</strong> and <strong>Offensive Security</strong>, 
+      completed during live project exercises and training labs.
+    </p>
+  </div>
+
+  <!-- Defensive Section -->
+  <div id="defensive" class="Row">
+    <h1>Defensive Projects</h1>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <img src="images/projects/wireshark.png" alt="Wireshark Malware Traffic">
+        <h3>Find the Culprit – Malware Network Traffic Analysis</h3>
+        <p>
+          Analyzed a PCAP file in Wireshark to track a Windows host infected by malware. 
+          Identified suspicious domains and confirmed the attack involved a Trojan/backdoor. 
+          Delivered a structured incident report with IPs, hostnames, and observed tactics, 
+          techniques, and procedures (TTPs).
         </p>
-    </strong>
-  </div>
-
- <!-- OFFENSIVE SECTION (CONSOLIDATED JUICE SHOP CARD) -->
-<div id="offensive"></div>
-<h1>Offensive Projects</h1>
-
-<!-- Consolidated Juice Shop Card -->
-<div class="Row">
-  <div style="width:100%; padding:10px;">
-    <img src="images/projects/offensive-juiceshop.png" alt="OWASP Juice Shop Consolidated" 
-         style="width:100%; height:340px; object-fit:cover; border-radius:8px; box-shadow:0 0 10px rgba(4,212,212,0.6); margin-bottom:12px;">
-    
-    <h1>OWASP Juice Shop — Consolidated Offensive Findings</h1>
-    <p>
-      This card consolidates all offensive work performed against the OWASP Juice Shop lab: reconnaissance, injection attacks, business-logic abuse, XSS, file/backup discovery, and account protections testing.
-    </p>
-
-    <h3 style="color:#00e6e6; text-align:center; margin-top:0.5rem;">Problems & Solutions</h3>
-
-    <!-- Accordion container -->
-    <div class="accordion">
-      <button class="accordion-btn">SQL Injection</button>
-      <div class="accordion-content">
-        <p><strong>Problem:</strong> SQL Injection allowed authentication bypass and data exposure.<br>
-        <strong>Solution:</strong> Use parameterized queries / prepared statements, input validation on server-side, and run regular automated injection tests.</p>
       </div>
 
-      <button class="accordion-btn">Broken Access Control</button>
-      <div class="accordion-content">
-        <p><strong>Problem:</strong> Inadequate server-side authorization (IDOR / broken access control).<br>
-        <strong>Solution:</strong> Enforce object-level authorization on the server for every request and add unit/integration tests that assert ownership checks.</p>
+      <div class="project-card">
+        <img src="images/projects/placeholder.png" alt="PowerShell Keylogger">
+        <h3>PowerShell Script Analysis</h3>
+        <p>
+          Investigated a malicious PowerShell keylogger script. 
+          Found hardcoded credentials, SMTP exfiltration, and persistence mechanisms. 
+          Reverse engineered script logic and documented indicators of compromise (IOCs).
+        </p>
       </div>
 
-      <button class="accordion-btn">XSS & Client-Side Validation</button>
-      <div class="accordion-content">
-        <p><strong>Problem:</strong> Client-side validation only (XSS and form bypasses).<br>
-        <strong>Solution:</strong> Implement server-side output encoding + a Content Security Policy (CSP); sanitize inputs and adopt secure templating.</p>
-      </div>
-
-      <button class="accordion-btn">Weak Password Policy</button>
-      <div class="accordion-content">
-        <p><strong>Problem:</strong> Weak password policy and missing account protections.<br>
-        <strong>Solution:</strong> Adopt NIST-aligned password guidance, add breach-list checks, enforce longer passphrases, throttle attempts, and enable MFA.</p>
-      </div>
-
-      <button class="accordion-btn">Forgotten Backup & File Handling</button>
-      <div class="accordion-content">
-        <p><strong>Problem:</strong> Forgotten backup and misconfigured file handling exposed sensitive files.<br>
-        <strong>Solution:</strong> Remove stray backups from production, apply strict filename validation and deny-lists, enforce secure storage policies, and add CI/CD checks to prevent artifact leaks.</p>
-      </div>
-
-      <button class="accordion-btn">Review/UX Flow Tampering</button>
-      <div class="accordion-content">
-        <p><strong>Problem:</strong> Review/UX flows vulnerable to tampering.<br>
-        <strong>Solution:</strong> Enforce server-side schemas & validation, add rate limiting and integrity checks, and include these checks in CI test suites.</p>
-      </div>
-
-      <button class="accordion-btn">Logging & Monitoring Gaps</button>
-      <div class="accordion-content">
-        <p><strong>Problem:</strong> Lack of logging/monitoring to detect exploitation attempts early.<br>
-        <strong>Solution:</strong> Instrument detailed request logging (safely), add alerts for anomalous patterns, and onboard these events into SIEM/analytic dashboards.</p>
-      </div>
-    </div>
-
-    <!-- Wrap-up paragraph -->
-    <p style="max-width:900px; margin:1.5rem auto; text-align:left;">
-      For each finding the card includes proof-of-concept requests, example payloads, and remediation steps in the developer-friendly format used in my submitted reports. Implementing the recommended fixes (server-side validation, parameterized queries, CSP, MFA, artifact hygiene, and logging) closes the attack surface and enables earlier detection of any future misuse.
-    </p>
-  </div>
-</div>
-
-
-
-  <!-- DEFENSIVE SECTION -->
-  <div id="defensive"></div>
-  <h1>Defensive Projects</h1>
-
-  <!-- Defensive Row 1 -->
-  <div class="Row">
-    <div class="Column_2">
-      <img src="images/projects/wireshark.png" alt="Find the Culprit PCAP">
-      <h1>Find the Culprit — Network Forensics (PCAP)</h1>
-      <p>
-        I analyzed PCAP traffic to identify a Windows host generating suspicious DNS and HTTP requests. 
-        Query patterns matched known C2 infrastructure consistent with Trojan/backdoor behavior. 
-        I extracted host identifiers, mapped events by time, and correlated with NBNS/LLMNR. 
-        I documented actionable IOCs (domains, IPs, URIs) for blocking and hunt. 
-        I wrote containment steps and validation checks for eradication. 
-        I summarized root cause and user impact in an executive brief. 
-        This strengthened my tshark/Wireshark workflow for rapid triage.
-      </p>
-    </div>
-
-    <div class="Column_1">
-      <img src="images/projects/placeholder.png" alt="PowerShell Keylogger">
-      <h1>Malicious PowerShell Script — Keylogger & SMTP Exfil</h1>
-      <p>
-        I reversed a PowerShell keylogger that imported <code>user32.dll</code> for <code>GetAsyncKeyState</code>. 
-        The script wrote keystrokes to a temp file and exfiltrated via SMTP on port 587. 
-        Hardcoded email and password indicated an operator-owned mailbox. 
-        I provided a SHA-256 hash, decoded config, and detection signatures. 
-        I recommended disabling legacy SMTP where possible and alerting on suspicious PowerShell. 
-        I created YARA-style strings and Sysmon filters for defenders. 
-        The report linked behaviors to concrete blue-team detections and blocks.
-      </p>
     </div>
   </div>
 
-  <!-- Defensive Row 2 -->
-  <div class="Row">
-    <div class="Column_2">
-      <img src="images/projects/placeholder.png" alt="Linux Server Logs">
-      <h1>Linux Server Logs — SSH Brute Force & Persistence</h1>
-      <p>
-        I parsed auth logs to surface repeated SSH failures from clustered source networks. 
-        I correlated successes that followed bursts to flag probable brute-force compromise. 
-        I checked cron, systemd user units, and rc scripts for persistence artifacts. 
-        I prepared firewall, Fail2ban, and key-only auth recommendations. 
-        I added host-based rules to detect anomalous shells and new SUID files. 
-        A concise timeline connected attacker actions to remediation tasks. 
-        The deliverable improved defensive monitoring and hardening posture.
-      </p>
-    </div>
+  <!-- Offensive Section -->
+  <div id="offensive" class="Row">
+    <h1>Offensive Projects</h1>
+    <div class="project-grid">
 
-    <div class="Column_1">
-      <img src="images/projects/placeholder.png" alt="Email Threat">
-      <h1>Malicious Email — Header & Payload Analysis</h1>
-      <p>
-        I examined headers to trace sender path, SPF/DMARC results, and reputation signals. 
-        I extracted attachments and links, detonating samples in a safe VM. 
-        I identified credential-harvesting lures and fake login pages. 
-        I proposed mail gateway rules and brand-protected warning banners. 
-        I documented block lists, user training notes, and incident playbook updates. 
-        Screenshots captured the lure flow and decoded landing pages. 
-        This work translated directly into better phishing resilience.
-      </p>
+      <div class="project-card">
+        <img src="images/projects/offensive-juiceshop.png" alt="Juice Shop Exploits">
+        <h3>OWASP Juice Shop Exploitation</h3>
+        <p>
+          Consolidated penetration testing work across multiple Juice Shop vulnerabilities, 
+          including SQL injection, XSS, broken access control, weak passwords, 
+          forgotten backups, and insecure review flows. 
+          For each exploit, delivered proof-of-concept requests and developer-focused 
+          remediation steps aligned to the OWASP Top 10.
+        </p>
+      </div>
+
     </div>
   </div>
 
-  <!-- Defensive Row 3 -->
-  <div class="Row">
-    <div class="Column_2">
-      <img src="images/projects/placeholder.png" alt="Deep Malware">
-      <h1>Deep Malware Investigation — Behavior & IOCs</h1>
-      <p>
-        I executed samples in a sandbox to capture file, registry, and process activity. 
-        Network captures showed beacon timing and data staging behavior. 
-        I enumerated persistence via run keys, startup folders, and scheduled tasks. 
-        I generated IOCs and matched them against open threat intel for context. 
-        I provided eradication guidance with verification checkpoints. 
-        I included before/after indicators to aid validation teams. 
-        The package enabled quick containment and informed detection engineering.
-      </p>
-    </div>
-
-    <div class="Column_1">
-      <img src="images/projects/placeholder.png" alt="Malware Traffic">
-      <h1>Malware Traffic — Object Extraction & Mapping</h1>
-      <p>
-        I filtered PCAPs to isolate suspect flows, then extracted transferable objects. 
-        I hashed artifacts and compared them against known-bad repositories. 
-        I mapped the infection timeline from delivery to C2 establishment. 
-        I highlighted defense gaps such as egress controls and DNS filtering. 
-        I created block lists and SIEM queries for immediate deployment. 
-        I provided a short executive summary and a detailed analyst annex. 
-        This improved both leadership visibility and analyst playbooks.
-      </p>
-    </div>
-  </div>
-
-  <!-- Footer (same style) -->
+  <!-- Footer -->
   <footer>
-    <p class="center">&copy; 2025 Morgan Lucero</p>
+    <p class="center">&copy; 2025 Morgan Lucero. All Rights Reserved.</p>
   </footer>
 </body>
 </html>
