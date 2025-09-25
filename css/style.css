@@ -351,28 +351,8 @@ form {
   box-shadow: 0 0 20px rgba(0,230,230,0.8);
 }
 
-/* Embedded gallery for project cards */
-.embedded-gallery {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.embedded-gallery img {
-  width: 32%;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 6px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.embedded-gallery img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0, 230, 230, 0.7);
-}
-
 
 /***** END PROJECT PAGE STYLING *****/
+
 
 
