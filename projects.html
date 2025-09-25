@@ -29,67 +29,75 @@
     </strong>
   </div>
 
-  <!-- OFFENSIVE SECTION (CONSOLIDATED JUICE SHOP CARD) -->
+ <!-- OFFENSIVE SECTION (CONSOLIDATED JUICE SHOP CARD) -->
 <div id="offensive"></div>
 <h1>Offensive Projects</h1>
 
-<!-- Consolidated Juice Shop Card (full-width) -->
+<!-- Consolidated Juice Shop Card -->
 <div class="Row">
-  <div style="width:100%; padding:10px;"> <!-- full-width wrapper to preserve home look -->
-    <img src="images/projects/offensive-juiceshop.png" alt="OWASP Juice Shop Consolidated" style="width:100%; height:340px; object-fit:cover; border-radius:8px; box-shadow:0 0 10px rgba(4,212,212,0.6); margin-bottom:12px;">
+  <div style="width:100%; padding:10px;">
+    <img src="images/projects/offensive-juiceshop.png" alt="OWASP Juice Shop Consolidated" 
+         style="width:100%; height:340px; object-fit:cover; border-radius:8px; box-shadow:0 0 10px rgba(4,212,212,0.6); margin-bottom:12px;">
+    
     <h1>OWASP Juice Shop — Consolidated Offensive Findings</h1>
-
-    <!-- Short intro paragraph (1 sentence) -->
     <p>
       This card consolidates all offensive work performed against the OWASP Juice Shop lab: reconnaissance, injection attacks, business-logic abuse, XSS, file/backup discovery, and account protections testing.
     </p>
 
-    <!-- Problems & Solutions list (clear mapping) -->
     <h3 style="color:#00e6e6; text-align:center; margin-top:0.5rem;">Problems & Solutions</h3>
 
-    <ul style="max-width:900px; margin:0.5rem auto 1rem auto; text-align:left; padding-left:1.25rem; line-height:1.6;">
-      <li>
-        <strong>Problem:</strong> SQL Injection allowed authentication bypass and data exposure.  
-        <strong>Solution:</strong> Use parameterized queries / prepared statements, input validation on server-side, and run regular automated injection tests.
-      </li>
+    <!-- Accordion container -->
+    <div class="accordion">
+      <button class="accordion-btn">SQL Injection</button>
+      <div class="accordion-content">
+        <p><strong>Problem:</strong> SQL Injection allowed authentication bypass and data exposure.<br>
+        <strong>Solution:</strong> Use parameterized queries / prepared statements, input validation on server-side, and run regular automated injection tests.</p>
+      </div>
 
-      <li>
-        <strong>Problem:</strong> Inadequate server-side authorization (IDOR / broken access control).  
-        <strong>Solution:</strong> Enforce object-level authorization on the server for every request and add unit/integration tests that assert ownership checks.
-      </li>
+      <button class="accordion-btn">Broken Access Control</button>
+      <div class="accordion-content">
+        <p><strong>Problem:</strong> Inadequate server-side authorization (IDOR / broken access control).<br>
+        <strong>Solution:</strong> Enforce object-level authorization on the server for every request and add unit/integration tests that assert ownership checks.</p>
+      </div>
 
-      <li>
-        <strong>Problem:</strong> Client-side validation only (XSS and form bypasses).  
-        <strong>Solution:</strong> Implement server-side output encoding + a Content Security Policy (CSP); sanitize inputs and adopt secure templating.
-      </li>
+      <button class="accordion-btn">XSS & Client-Side Validation</button>
+      <div class="accordion-content">
+        <p><strong>Problem:</strong> Client-side validation only (XSS and form bypasses).<br>
+        <strong>Solution:</strong> Implement server-side output encoding + a Content Security Policy (CSP); sanitize inputs and adopt secure templating.</p>
+      </div>
 
-      <li>
-        <strong>Problem:</strong> Weak password policy and missing account protections (no lockout / no breach-list checks).  
-        <strong>Solution:</strong> Adopt NIST-aligned password guidance, add breach-list checks, enforce longer passphrases, throttle attempts, and enable MFA.
-      </li>
+      <button class="accordion-btn">Weak Password Policy</button>
+      <div class="accordion-content">
+        <p><strong>Problem:</strong> Weak password policy and missing account protections.<br>
+        <strong>Solution:</strong> Adopt NIST-aligned password guidance, add breach-list checks, enforce longer passphrases, throttle attempts, and enable MFA.</p>
+      </div>
 
-      <li>
-        <strong>Problem:</strong> Forgotten backup and misconfigured file handling exposed sensitive files (Poison Null/backup artifacts).  
-        <strong>Solution:</strong> Remove stray backups from production, apply strict filename validation and deny-lists, enforce secure storage policies, and add CI/CD checks to prevent artifact leaks.
-      </li>
+      <button class="accordion-btn">Forgotten Backup & File Handling</button>
+      <div class="accordion-content">
+        <p><strong>Problem:</strong> Forgotten backup and misconfigured file handling exposed sensitive files.<br>
+        <strong>Solution:</strong> Remove stray backups from production, apply strict filename validation and deny-lists, enforce secure storage policies, and add CI/CD checks to prevent artifact leaks.</p>
+      </div>
 
-      <li>
-        <strong>Problem:</strong> Review/UX flows vulnerable to tampering (client-side rules bypassed to post arbitrary content).  
-        <strong>Solution:</strong> Enforce server-side schemas & validation, add rate limiting and integrity checks, and include these checks in CI test suites.
-      </li>
+      <button class="accordion-btn">Review/UX Flow Tampering</button>
+      <div class="accordion-content">
+        <p><strong>Problem:</strong> Review/UX flows vulnerable to tampering.<br>
+        <strong>Solution:</strong> Enforce server-side schemas & validation, add rate limiting and integrity checks, and include these checks in CI test suites.</p>
+      </div>
 
-      <li>
-        <strong>Problem:</strong> Lack of logging/monitoring to detect exploitation attempts early.  
-        <strong>Solution:</strong> Instrument detailed request logging (safely), add alerts for anomalous patterns (massive parameter tampering, high-rate failed logins), and onboard these events into SIEM/analytic dashboards.
-      </li>
-    </ul>
+      <button class="accordion-btn">Logging & Monitoring Gaps</button>
+      <div class="accordion-content">
+        <p><strong>Problem:</strong> Lack of logging/monitoring to detect exploitation attempts early.<br>
+        <strong>Solution:</strong> Instrument detailed request logging (safely), add alerts for anomalous patterns, and onboard these events into SIEM/analytic dashboards.</p>
+      </div>
+    </div>
 
-    <!-- Wrap-up paragraph (2 sentences) -->
-    <p style="max-width:900px; margin:0 auto 1.5rem auto; text-align:left;">
+    <!-- Wrap-up paragraph -->
+    <p style="max-width:900px; margin:1.5rem auto; text-align:left;">
       For each finding the card includes proof-of-concept requests, example payloads, and remediation steps in the developer-friendly format used in my submitted reports. Implementing the recommended fixes (server-side validation, parameterized queries, CSP, MFA, artifact hygiene, and logging) closes the attack surface and enables earlier detection of any future misuse.
     </p>
   </div>
 </div>
+
 
 
   <!-- DEFENSIVE SECTION -->
