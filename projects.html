@@ -37,10 +37,10 @@
     <div class="project-grid">
 
       <div class="project-card">
-        <div class="embedded-gallery">
-          <img src="images/malware analysis1.png" alt="Wireshark Screenshot 1">
-          <img src="images/malware traffic.1.png" alt="Wireshark Screenshot 2">
-          <img src="images/malware traffic.png" alt="Wireshark Screenshot 3">
+        <div class="thumbnail-gallery">
+          <img src="images/projects/wireshark-thumb1.png" alt="Wireshark Screenshot 1" onclick="openLightbox(this)">
+          <img src="images/projects/wireshark-thumb2.png" alt="Wireshark Screenshot 2" onclick="openLightbox(this)">
+          <img src="images/projects/wireshark-thumb3.png" alt="Wireshark Screenshot 3" onclick="openLightbox(this)">
         </div>
         <h3>Find the Culprit – Malware Network Traffic Analysis</h3>
         <p>
@@ -52,10 +52,10 @@
       </div>
 
       <div class="project-card">
-        <div class="embedded-gallery">
-          <img src="images/story 1 screenshot.png" alt="PowerShell Screenshot 1">
-          <img src="images/projects/placeholder.png" alt="PowerShell Screenshot 2">
-          <img src="images/projects/placeholder.png" alt="PowerShell Screenshot 3">
+        <div class="thumbnail-gallery">
+          <img src="images/projects/placeholder.png" alt="PowerShell Screenshot 1" onclick="openLightbox(this)">
+          <img src="images/projects/placeholder.png" alt="PowerShell Screenshot 2" onclick="openLightbox(this)">
+          <img src="images/projects/placeholder.png" alt="PowerShell Screenshot 3" onclick="openLightbox(this)">
         </div>
         <h3>PowerShell Script Analysis</h3>
         <p>
@@ -74,10 +74,10 @@
     <div class="project-grid">
 
       <div class="project-card">
-        <div class="embedded-gallery">
-          <img src="images/projects/offensive1.png" alt="Juice Shop Screenshot 1">
-          <img src="images/projects/offensive2.png" alt="Juice Shop Screenshot 2">
-          <img src="images/projects/offensive3.png" alt="Juice Shop Screenshot 3">
+        <div class="thumbnail-gallery">
+          <img src="images/projects/offensive1.png" alt="Juice Shop Screenshot 1" onclick="openLightbox(this)">
+          <img src="images/projects/offensive2.png" alt="Juice Shop Screenshot 2" onclick="openLightbox(this)">
+          <img src="images/projects/offensive3.png" alt="Juice Shop Screenshot 3" onclick="openLightbox(this)">
         </div>
         <h3>OWASP Juice Shop Exploitation</h3>
         <p>
@@ -92,9 +92,26 @@
     </div>
   </div>
 
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+  </div>
+
   <!-- Footer -->
   <footer>
     <p class="center">&copy; 2025 Morgan Lucero. All Rights Reserved.</p>
   </footer>
+
+  <!-- JavaScript for Lightbox -->
+  <script>
+    function openLightbox(imgElement) {
+      document.getElementById("lightbox").style.display = "flex";
+      document.getElementById("lightbox-img").src = imgElement.src;
+    }
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
+
 </body>
 </html>
