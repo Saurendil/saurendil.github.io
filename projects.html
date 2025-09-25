@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <!-- Navigation -->
   <nav class="Navbar">
     <a href="index.html">Home</a>
@@ -19,7 +20,7 @@
     <p>Hands-on offensive and defensive security work from my live project experience.</p>
   </header>
 
-  <!-- Project Index -->
+  <!-- Index -->
   <div class="project-index">
     <h2>Explore My Projects</h2>
     <div>
@@ -28,65 +29,48 @@
     </div>
   </div>
 
-  <!-- Main content -->
   <main>
-    <!-- Defensive Projects -->
+    <!-- Defensive -->
     <h2 id="defensive" class="section-title">Defensive Projects</h2>
     <div class="project-grid">
       <div class="project-card">
-        <img src="images/projects/wireshark.png" alt="Wireshark Screenshot">
-        <h3>Find the Culprit – Malware Network Traffic Analysis</h3>
-        <p>
-          Investigated a suspicious PCAP file containing unusual network traffic. 
-          Identified a Windows host compromised by malware after analyzing NBNS, LLMNR, and DNS requests. 
-          Mapped communications to suspicious domains tied to known C2 servers. 
-          Confirmed the malware as a Trojan/backdoor with persistence behaviors. 
-          Documented key IOCs including IPs, domains, and HTTP requests. 
-          This project reinforced my ability to perform forensic network analysis with Wireshark and tshark.
-        </p>
+        <img src="images/projects/wireshark.png" alt="Wireshark">
+        <h3>Find the Culprit – Network Forensics</h3>
+        <p>Analyzed PCAP data to uncover a compromised host. Mapped malicious DNS and NBNS requests to known C2 infrastructure. Identified a Windows client infected by a Trojan/backdoor. Documented Indicators of Compromise (IOCs) such as IPs, domains, and timestamps. Recommended blocking malicious domains at the firewall and patching SMB services. This exercise improved my ability to perform forensic packet analysis with Wireshark and tshark.</p>
       </div>
 
       <div class="project-card">
-        <img src="images/projects/powershell-placeholder.png" alt="PowerShell Placeholder">
-        <h3>PowerShell Script Analysis</h3>
-        <p>
-          Reverse engineered a malicious PowerShell script designed to record keystrokes. 
-          Discovered hardcoded Gmail credentials used to exfiltrate logs via SMTP on port 587. 
-          Found DLL imports from user32.dll enabling keystroke monitoring with GetAsyncKeyState. 
-          Identified the storage of keystrokes in a temp folder before exfiltration. 
-          Wrote a defensive report highlighting script functionality and security risks. 
-          This analysis developed my skills in script analysis and malware behavior mapping.
-        </p>
+        <img src="images/projects/powershell-placeholder.png" alt="PowerShell">
+        <h3>Malicious PowerShell Script Analysis</h3>
+        <p>Reversed a keylogger written in PowerShell. Found hardcoded Gmail credentials used to exfiltrate logs via SMTP. Investigated DLL imports from user32.dll that enabled keystroke monitoring with GetAsyncKeyState. Confirmed persistence through registry modifications and scheduled tasks. Wrote a defensive report highlighting risk to enterprise mail servers. This reinforced my skills in static code analysis and malware reverse engineering.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="images/projects/defensive-malware.png" alt="Malware Analysis">
+        <h3>Malware Behavior Analysis</h3>
+        <p>Executed malware samples in a controlled VM to observe runtime behavior. Captured API calls, registry modifications, and file writes with Sysinternals tools. Monitored traffic to detect data exfiltration and beaconing. Identified persistence mechanisms like run keys and startup folder scripts. Compiled results into an incident report documenting IOCs. This project taught me defensive strategies to detect and mitigate endpoint compromises.</p>
       </div>
     </div>
 
-    <!-- Offensive Projects -->
+    <!-- Offensive -->
     <h2 id="offensive" class="section-title">Offensive Projects</h2>
     <div class="project-grid">
       <div class="project-card">
-        <img src="images/projects/offensive-1.png" alt="Juice Shop Exploit Screenshot">
+        <img src="images/projects/offensive-1.png" alt="Juice Shop">
         <h3>OWASP Juice Shop Exploitation</h3>
-        <p>
-          Completed multiple offensive security challenges using the OWASP Juice Shop vulnerable web app. 
-          Exploited SQL injection flaws to bypass authentication and extract sensitive data. 
-          Performed CAPTCHA bypass to demonstrate weaknesses in input validation. 
-          Escalated privileges to gain administrator access and manipulate application state. 
-          Gained real-world experience with web exploitation tools including Burp Suite. 
-          This project reinforced key OWASP Top 10 vulnerabilities and attack methodologies.
-        </p>
+        <p>Performed penetration testing challenges including SQL injection, CAPTCHA bypass, and privilege escalation. Exploited weak input validation to manipulate authentication and gain admin rights. Used Burp Suite to intercept and modify HTTP requests. Completed data exfiltration and privilege manipulation tasks. Reinforced understanding of OWASP Top 10 web vulnerabilities. Gained practical offensive testing skills applicable to real-world engagements.</p>
       </div>
 
       <div class="project-card">
-        <img src="images/projects/offensive-2.png" alt="Offensive Screenshot">
-        <h3>Advanced Offensive Security Challenges</h3>
-        <p>
-          Solved hands-on challenges involving authentication bypass and file manipulation. 
-          Applied logic flaws to access restricted resources and escalate privileges. 
-          Demonstrated parameter tampering attacks to bypass restrictions. 
-          Analyzed server responses to craft payloads that revealed hidden data. 
-          Reinforced penetration testing methodology through repeatable techniques. 
-          These exercises built practical skills in simulating adversarial attacks.
-        </p>
+        <img src="images/projects/offensive-2.png" alt="Offensive Challenge">
+        <h3>Advanced Web Exploits</h3>
+        <p>Executed authentication bypass and parameter tampering to access restricted resources. Exploited file upload flaws to gain code execution. Manipulated cookies and session tokens to escalate privileges. Crafted payloads by analyzing server responses and hidden API endpoints. Documented exploitation steps and remediation recommendations. This project built practical skills in exploiting logic flaws and web app misconfigurations.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="images/projects/offensive-3.png" alt="Poison Null">
+        <h3>Poison Null Byte & Forgotten Backup</h3>
+        <p>Discovered a forgotten backup file via directory traversal. Used a Poison Null Byte attack to bypass input filters and gain access. Extracted sensitive user data and backend code. Demonstrated how improper input sanitization can lead to data breaches. Documented exploitation path with screenshots and payload details. This reinforced the importance of secure file handling and validation in web applications.</p>
       </div>
     </div>
   </main>
