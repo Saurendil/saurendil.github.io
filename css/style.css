@@ -260,17 +260,6 @@ form {
   text-shadow: 0 0 15px rgba(0, 230, 230, 0.8);
 }
 
-/* Project grid */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin: 2rem;
-  background: rgba(0,0,0,0.6);
-  padding: 1rem;
-  border-radius: 10px;
-}
-
 /* Project card */
 .project-card {
   background: rgba(0, 0, 0, 0.85);
@@ -280,7 +269,9 @@ form {
   color: #fff;
   box-shadow: 0 0 10px rgba(4,212,212,0.7);
   transition: transform 0.3s ease;
-  min-height: 420px;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  height: 100%; /* Allow cards to stretch evenly in the grid */
 }
 
 .project-card:hover {
@@ -288,29 +279,7 @@ form {
   box-shadow: 0 0 20px rgba(180,5,180,0.8);
 }
 
-.project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-
-.project-card h3 {
-  font-size: 1.3rem;
-  text-align: center;
-  color: #00e6e6;
-  margin-bottom: 0.75rem;
-}
-
-.project-card p {
-  font-size: 1rem;
-  text-align: left;
-  line-height: 1.5;
-  color: #f4f4f4;
-}
-
-/* Thumbnail gallery inside project cards */
+/* Thumbnail gallery */
 .thumbnail-gallery {
   display: flex;
   justify-content: space-around;
@@ -332,6 +301,22 @@ form {
   box-shadow: 0 0 10px rgba(0, 230, 230, 0.7);
 }
 
+/* Titles and summaries */
+.project-card h3 {
+  font-size: 1.3rem;
+  text-align: center;
+  color: #00e6e6;
+  margin-bottom: 0.75rem;
+}
+
+.project-card p {
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.6;
+  color: #f4f4f4;
+  flex-grow: 1; /* Ensures text fills space evenly */
+}
+
 /* Lightbox overlay */
 #lightbox {
   display: none;
@@ -350,6 +335,7 @@ form {
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0,230,230,0.8);
 }
+
 
 /* Projects button inside GitHub section */
 .project-button {
@@ -374,6 +360,7 @@ form {
 
 
 /***** END PROJECT PAGE STYLING *****/
+
 
 
 
