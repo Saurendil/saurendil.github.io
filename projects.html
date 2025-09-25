@@ -2,82 +2,262 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cybersecurity Projects</title>
+  <meta name="viewport" content="width=device-width" />
+  <title>Projects — Morgan Lucero</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="Background">
 
-  <!-- Navigation -->
-  <nav class="Navbar">
+  <!-- Navbar (identical styling) -->
+  <div class="Navbar">
     <a href="index.html">Home</a>
-  </nav>
+    <a href="#offensive">Offensive</a>
+    <a href="#defensive">Defensive</a>
+  </div>
 
-  <!-- Header -->
-  <header>
-    <h1>Cybersecurity Projects</h1>
-    <p>Hands-on offensive and defensive security work from my live project experience.</p>
-  </header>
+  <!-- Space under fixed navbar -->
+  <br><br>
 
-  <!-- Index -->
-  <div class="project-index">
-    <h2>Explore My Projects</h2>
-    <div>
-      <a href="#defensive">Defensive Projects</a>
-      <a href="#offensive">Offensive Projects</a>
+  <!-- Header text (same style as home) -->
+  <div class="Video_Text">
+    <h1 class="white-text">Projects</h1>
+    <strong>
+      <p class="center">
+        Hands-on work grouped into Offensive and Defensive sections.  
+        Each project shows a screenshot (or placeholder) and a concise seven-sentence summary.
+      </p>
+    </strong>
+  </div>
+
+  <!-- OFFENSIVE SECTION -->
+  <div id="offensive"></div>
+  <h1>Offensive Projects</h1>
+
+  <!-- Offensive Row 1 -->
+  <div class="Row">
+    <div class="Column_2">
+      <img src="images/projects/offensive-1.png" alt="Offensive 1">
+      <h1>Offensive 1 — Initial Recon & Injection</h1>
+      <p>
+        I performed structured recon on OWASP Juice Shop to map pages, parameters, and tech stack. 
+        Using this map, I probed inputs and identified injectable points in authentication and search. 
+        I demonstrated SQL injection to bypass login and retrieve proof-of-concept data safely. 
+        I validated risk by showing how missing server-side validation amplified the impact. 
+        I documented steps and crafted parameterized-query remediation guidance for developers. 
+        I captured evidence screenshots and timestamps to ensure repeatability. 
+        This challenge reinforced practical enumeration, payload crafting, and secure coding countermeasures.
+      </p>
+    </div>
+
+    <div class="Column_1">
+      <img src="images/projects/offensive-2.png" alt="Offensive 2">
+      <h1>Offensive 2 — Business Logic & IDOR</h1>
+      <p>
+        I tested business logic around baskets, orders, and profile areas for insecure direct object references. 
+        By manipulating IDs and hidden fields, I accessed resources from other accounts in a contained lab. 
+        I verified the flaw worked independent of the UI by sending crafted requests via an interceptor. 
+        I wrote developer guidance to enforce object-level authorization on every request. 
+        I added checks for user-to-object ownership on server side and recommended test cases. 
+        All actions were logged with request/response pairs for reproducibility. 
+        The exercise deepened my ability to spot and explain logic flaws clearly.
+      </p>
     </div>
   </div>
 
-  <main>
-    <!-- Defensive -->
-    <h2 id="defensive" class="section-title">Defensive Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="images/projects/wireshark.png" alt="Wireshark">
-        <h3>Find the Culprit – Network Forensics</h3>
-        <p>Analyzed PCAP data to uncover a compromised host. Mapped malicious DNS and NBNS requests to known C2 infrastructure. Identified a Windows client infected by a Trojan/backdoor. Documented Indicators of Compromise (IOCs) such as IPs, domains, and timestamps. Recommended blocking malicious domains at the firewall and patching SMB services. This exercise improved my ability to perform forensic packet analysis with Wireshark and tshark.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="images/projects/powershell-placeholder.png" alt="PowerShell">
-        <h3>Malicious PowerShell Script Analysis</h3>
-        <p>Reversed a keylogger written in PowerShell. Found hardcoded Gmail credentials used to exfiltrate logs via SMTP. Investigated DLL imports from user32.dll that enabled keystroke monitoring with GetAsyncKeyState. Confirmed persistence through registry modifications and scheduled tasks. Wrote a defensive report highlighting risk to enterprise mail servers. This reinforced my skills in static code analysis and malware reverse engineering.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="images/projects/defensive-malware.png" alt="Malware Analysis">
-        <h3>Malware Behavior Analysis</h3>
-        <p>Executed malware samples in a controlled VM to observe runtime behavior. Captured API calls, registry modifications, and file writes with Sysinternals tools. Monitored traffic to detect data exfiltration and beaconing. Identified persistence mechanisms like run keys and startup folder scripts. Compiled results into an incident report documenting IOCs. This project taught me defensive strategies to detect and mitigate endpoint compromises.</p>
-      </div>
+  <!-- Offensive Row 2 -->
+  <div class="Row">
+    <div class="Column_2">
+      <img src="images/projects/offensive-3.png" alt="Offensive 3">
+      <h1>Offensive 3 — XSS & Client-Side Controls</h1>
+      <p>
+        I injected controlled XSS payloads into fields that lacked robust output encoding. 
+        The payload confirmed DOM execution and demonstrated potential session theft. 
+        I showed how client-side checks alone could be bypassed with direct requests. 
+        I recommended output encoding, CSP headers, and server-side validation as layered defenses. 
+        I included sample secure templates and a minimal CSP starter policy. 
+        Test evidence captured the payload execution and network traces. 
+        This improved my ability to link exploit paths to concrete mitigations.
+      </p>
     </div>
 
-    <!-- Offensive -->
-    <h2 id="offensive" class="section-title">Offensive Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="images/projects/offensive-1.png" alt="Juice Shop">
-        <h3>OWASP Juice Shop Exploitation</h3>
-        <p>Performed penetration testing challenges including SQL injection, CAPTCHA bypass, and privilege escalation. Exploited weak input validation to manipulate authentication and gain admin rights. Used Burp Suite to intercept and modify HTTP requests. Completed data exfiltration and privilege manipulation tasks. Reinforced understanding of OWASP Top 10 web vulnerabilities. Gained practical offensive testing skills applicable to real-world engagements.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="images/projects/offensive-2.png" alt="Offensive Challenge">
-        <h3>Advanced Web Exploits</h3>
-        <p>Executed authentication bypass and parameter tampering to access restricted resources. Exploited file upload flaws to gain code execution. Manipulated cookies and session tokens to escalate privileges. Crafted payloads by analyzing server responses and hidden API endpoints. Documented exploitation steps and remediation recommendations. This project built practical skills in exploiting logic flaws and web app misconfigurations.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="images/projects/offensive-3.png" alt="Poison Null">
-        <h3>Poison Null Byte & Forgotten Backup</h3>
-        <p>Discovered a forgotten backup file via directory traversal. Used a Poison Null Byte attack to bypass input filters and gain access. Extracted sensitive user data and backend code. Demonstrated how improper input sanitization can lead to data breaches. Documented exploitation path with screenshots and payload details. This reinforced the importance of secure file handling and validation in web applications.</p>
-      </div>
+    <div class="Column_1">
+      <img src="images/projects/offensive-4.png" alt="Offensive 4">
+      <h1>Offensive 4 — Poison Null Byte & Backup Discovery</h1>
+      <p>
+        I combined directory probing with a poison null byte technique to bypass naive filters. 
+        That access revealed a forgotten backup containing sensitive app logic. 
+        I reviewed the backup to map hidden endpoints and insecure assumptions. 
+        I proposed hardening: strict filename validation, deny-lists, and serving static files via safe handlers. 
+        I recommended scanning for stray backups in CI/CD and production storage. 
+        Results were summarized with exact request examples and fix priorities. 
+        The challenge highlighted how small misconfigurations can enable major data exposure.
+      </p>
     </div>
-  </main>
+  </div>
 
-  <!-- Footer -->
+  <!-- Offensive Row 3 -->
+  <div class="Row">
+    <div class="Column_2">
+      <img src="images/projects/offensive-5.png" alt="Offensive 5">
+      <h1>Offensive 5 — Review Tampering & Validation Gaps</h1>
+      <p>
+        I analyzed review workflows and found weak server-side validation of ratings and text. 
+        By altering payloads, I posted out-of-policy reviews and edge values. 
+        I documented how client-side rules were easily bypassed with intercepted requests. 
+        I proposed server-enforced schemas, rate limits, and integrity checks. 
+        I added test vectors to QA scripts to prevent regressions. 
+        Evidence included before/after states and diffed payloads. 
+        The outcome clarified how to enforce integrity beyond the UI layer.
+      </p>
+    </div>
+
+    <div class="Column_1">
+      <img src="images/projects/offensive-6.png" alt="Offensive 6">
+      <h1>Offensive 6 — Password Policy & Account Protections</h1>
+      <p>
+        I reviewed password flows and highlighted minimum-strength and reuse weaknesses. 
+        I showed how weak policy compounds risk when MFA and lockouts are absent. 
+        I proposed NIST-aligned guidance for length, breach-list checks, and throttling. 
+        I recommended MFA rollout and session-hardening measures. 
+        I prepared developer tickets with acceptance criteria and test steps. 
+        Screenshots documented policy bypass edge cases. 
+        This work tied offensive findings directly to practical hardening tasks.
+      </p>
+    </div>
+  </div>
+
+  <!-- Offensive Row 4 -->
+  <div class="Row">
+    <div class="Column_2">
+      <img src="images/projects/offensive-7.png" alt="Offensive 7">
+      <h1>Offensive 7 — Forgotten Backup & Privilege Escalation</h1>
+      <p>
+        I discovered a backup artifact revealing configuration secrets and internal routes. 
+        Mapping those routes exposed an overlooked admin path with weak checks. 
+        I responsibly demonstrated limited escalation in the safe lab to validate impact. 
+        I proposed secret rotation, scoped tokens, and audit of legacy routes. 
+        I added a process step to purge artifacts before deployment. 
+        I provided an engineering checklist to prevent recurrence. 
+        This emphasized secure configuration management alongside code fixes.
+      </p>
+    </div>
+
+    <div class="Column_1">
+      <img src="images/projects/placeholder.png" alt="Extra Offensive Placeholder">
+      <h1>Bonus — Parameter Tampering & Hidden APIs</h1>
+      <p>
+        I enumerated hidden endpoints via developer tools and predictable routes. 
+        Using parameter tampering, I accessed functionality not surfaced in the UI. 
+        I documented precise diffed requests for developers to reproduce locally. 
+        I recommended explicit allow-lists and server-side capability checks. 
+        I added regression tests to block unsafe parameter names. 
+        Screenshots and timings support triage prioritization. 
+        The lesson: treat client input as hostile and validate capabilities on the server.
+      </p>
+    </div>
+  </div>
+
+  <!-- DEFENSIVE SECTION -->
+  <div id="defensive"></div>
+  <h1>Defensive Projects</h1>
+
+  <!-- Defensive Row 1 -->
+  <div class="Row">
+    <div class="Column_2">
+      <img src="images/projects/wireshark.png" alt="Find the Culprit PCAP">
+      <h1>Find the Culprit — Network Forensics (PCAP)</h1>
+      <p>
+        I analyzed PCAP traffic to identify a Windows host generating suspicious DNS and HTTP requests. 
+        Query patterns matched known C2 infrastructure consistent with Trojan/backdoor behavior. 
+        I extracted host identifiers, mapped events by time, and correlated with NBNS/LLMNR. 
+        I documented actionable IOCs (domains, IPs, URIs) for blocking and hunt. 
+        I wrote containment steps and validation checks for eradication. 
+        I summarized root cause and user impact in an executive brief. 
+        This strengthened my tshark/Wireshark workflow for rapid triage.
+      </p>
+    </div>
+
+    <div class="Column_1">
+      <img src="images/projects/placeholder.png" alt="PowerShell Keylogger">
+      <h1>Malicious PowerShell Script — Keylogger & SMTP Exfil</h1>
+      <p>
+        I reversed a PowerShell keylogger that imported <code>user32.dll</code> for <code>GetAsyncKeyState</code>. 
+        The script wrote keystrokes to a temp file and exfiltrated via SMTP on port 587. 
+        Hardcoded email and password indicated an operator-owned mailbox. 
+        I provided a SHA-256 hash, decoded config, and detection signatures. 
+        I recommended disabling legacy SMTP where possible and alerting on suspicious PowerShell. 
+        I created YARA-style strings and Sysmon filters for defenders. 
+        The report linked behaviors to concrete blue-team detections and blocks.
+      </p>
+    </div>
+  </div>
+
+  <!-- Defensive Row 2 -->
+  <div class="Row">
+    <div class="Column_2">
+      <img src="images/projects/placeholder.png" alt="Linux Server Logs">
+      <h1>Linux Server Logs — SSH Brute Force & Persistence</h1>
+      <p>
+        I parsed auth logs to surface repeated SSH failures from clustered source networks. 
+        I correlated successes that followed bursts to flag probable brute-force compromise. 
+        I checked cron, systemd user units, and rc scripts for persistence artifacts. 
+        I prepared firewall, Fail2ban, and key-only auth recommendations. 
+        I added host-based rules to detect anomalous shells and new SUID files. 
+        A concise timeline connected attacker actions to remediation tasks. 
+        The deliverable improved defensive monitoring and hardening posture.
+      </p>
+    </div>
+
+    <div class="Column_1">
+      <img src="images/projects/placeholder.png" alt="Email Threat">
+      <h1>Malicious Email — Header & Payload Analysis</h1>
+      <p>
+        I examined headers to trace sender path, SPF/DMARC results, and reputation signals. 
+        I extracted attachments and links, detonating samples in a safe VM. 
+        I identified credential-harvesting lures and fake login pages. 
+        I proposed mail gateway rules and brand-protected warning banners. 
+        I documented block lists, user training notes, and incident playbook updates. 
+        Screenshots captured the lure flow and decoded landing pages. 
+        This work translated directly into better phishing resilience.
+      </p>
+    </div>
+  </div>
+
+  <!-- Defensive Row 3 -->
+  <div class="Row">
+    <div class="Column_2">
+      <img src="images/projects/placeholder.png" alt="Deep Malware">
+      <h1>Deep Malware Investigation — Behavior & IOCs</h1>
+      <p>
+        I executed samples in a sandbox to capture file, registry, and process activity. 
+        Network captures showed beacon timing and data staging behavior. 
+        I enumerated persistence via run keys, startup folders, and scheduled tasks. 
+        I generated IOCs and matched them against open threat intel for context. 
+        I provided eradication guidance with verification checkpoints. 
+        I included before/after indicators to aid validation teams. 
+        The package enabled quick containment and informed detection engineering.
+      </p>
+    </div>
+
+    <div class="Column_1">
+      <img src="images/projects/placeholder.png" alt="Malware Traffic">
+      <h1>Malware Traffic — Object Extraction & Mapping</h1>
+      <p>
+        I filtered PCAPs to isolate suspect flows, then extracted transferable objects. 
+        I hashed artifacts and compared them against known-bad repositories. 
+        I mapped the infection timeline from delivery to C2 establishment. 
+        I highlighted defense gaps such as egress controls and DNS filtering. 
+        I created block lists and SIEM queries for immediate deployment. 
+        I provided a short executive summary and a detailed analyst annex. 
+        This improved both leadership visibility and analyst playbooks.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer (same style) -->
   <footer>
-    <p>&copy; 2025 Morgan Lucero. All Rights Reserved.</p>
+    <p class="center">&copy; 2025 Morgan Lucero</p>
   </footer>
 </body>
 </html>
