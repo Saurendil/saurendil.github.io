@@ -25,138 +25,72 @@
     <strong>
       <p class="center">
         Hands-on work grouped into Offensive and Defensive sections.  
-        Each project shows a screenshot (or placeholder) and a concise seven-sentence summary.
-      </p>
+        </p>
     </strong>
   </div>
 
-  <!-- OFFENSIVE SECTION -->
-  <div id="offensive"></div>
-  <h1>Offensive Projects</h1>
+  <!-- OFFENSIVE SECTION (CONSOLIDATED JUICE SHOP CARD) -->
+<div id="offensive"></div>
+<h1>Offensive Projects</h1>
 
-  <!-- Offensive Row 1 -->
-  <div class="Row">
-    <div class="Column_2">
-      <img src="images/projects/offensive-1.png" alt="Offensive 1">
-      <h1>Offensive 1 — Initial Recon & Injection</h1>
-      <p>
-        I performed structured recon on OWASP Juice Shop to map pages, parameters, and tech stack. 
-        Using this map, I probed inputs and identified injectable points in authentication and search. 
-        I demonstrated SQL injection to bypass login and retrieve proof-of-concept data safely. 
-        I validated risk by showing how missing server-side validation amplified the impact. 
-        I documented steps and crafted parameterized-query remediation guidance for developers. 
-        I captured evidence screenshots and timestamps to ensure repeatability. 
-        This challenge reinforced practical enumeration, payload crafting, and secure coding countermeasures.
-      </p>
-    </div>
+<!-- Consolidated Juice Shop Card (full-width) -->
+<div class="Row">
+  <div style="width:100%; padding:10px;"> <!-- full-width wrapper to preserve home look -->
+    <img src="images/projects/offensive-juiceshop.png" alt="OWASP Juice Shop Consolidated" style="width:100%; height:340px; object-fit:cover; border-radius:8px; box-shadow:0 0 10px rgba(4,212,212,0.6); margin-bottom:12px;">
+    <h1>OWASP Juice Shop — Consolidated Offensive Findings</h1>
 
-    <div class="Column_1">
-      <img src="images/projects/offensive-2.png" alt="Offensive 2">
-      <h1>Offensive 2 — Business Logic & IDOR</h1>
-      <p>
-        I tested business logic around baskets, orders, and profile areas for insecure direct object references. 
-        By manipulating IDs and hidden fields, I accessed resources from other accounts in a contained lab. 
-        I verified the flaw worked independent of the UI by sending crafted requests via an interceptor. 
-        I wrote developer guidance to enforce object-level authorization on every request. 
-        I added checks for user-to-object ownership on server side and recommended test cases. 
-        All actions were logged with request/response pairs for reproducibility. 
-        The exercise deepened my ability to spot and explain logic flaws clearly.
-      </p>
-    </div>
+    <!-- Short intro paragraph (1 sentence) -->
+    <p>
+      This card consolidates all offensive work performed against the OWASP Juice Shop lab: reconnaissance, injection attacks, business-logic abuse, XSS, file/backup discovery, and account protections testing.
+    </p>
+
+    <!-- Problems & Solutions list (clear mapping) -->
+    <h3 style="color:#00e6e6; text-align:center; margin-top:0.5rem;">Problems & Solutions</h3>
+
+    <ul style="max-width:900px; margin:0.5rem auto 1rem auto; text-align:left; padding-left:1.25rem; line-height:1.6;">
+      <li>
+        <strong>Problem:</strong> SQL Injection allowed authentication bypass and data exposure.  
+        <strong>Solution:</strong> Use parameterized queries / prepared statements, input validation on server-side, and run regular automated injection tests.
+      </li>
+
+      <li>
+        <strong>Problem:</strong> Inadequate server-side authorization (IDOR / broken access control).  
+        <strong>Solution:</strong> Enforce object-level authorization on the server for every request and add unit/integration tests that assert ownership checks.
+      </li>
+
+      <li>
+        <strong>Problem:</strong> Client-side validation only (XSS and form bypasses).  
+        <strong>Solution:</strong> Implement server-side output encoding + a Content Security Policy (CSP); sanitize inputs and adopt secure templating.
+      </li>
+
+      <li>
+        <strong>Problem:</strong> Weak password policy and missing account protections (no lockout / no breach-list checks).  
+        <strong>Solution:</strong> Adopt NIST-aligned password guidance, add breach-list checks, enforce longer passphrases, throttle attempts, and enable MFA.
+      </li>
+
+      <li>
+        <strong>Problem:</strong> Forgotten backup and misconfigured file handling exposed sensitive files (Poison Null/backup artifacts).  
+        <strong>Solution:</strong> Remove stray backups from production, apply strict filename validation and deny-lists, enforce secure storage policies, and add CI/CD checks to prevent artifact leaks.
+      </li>
+
+      <li>
+        <strong>Problem:</strong> Review/UX flows vulnerable to tampering (client-side rules bypassed to post arbitrary content).  
+        <strong>Solution:</strong> Enforce server-side schemas & validation, add rate limiting and integrity checks, and include these checks in CI test suites.
+      </li>
+
+      <li>
+        <strong>Problem:</strong> Lack of logging/monitoring to detect exploitation attempts early.  
+        <strong>Solution:</strong> Instrument detailed request logging (safely), add alerts for anomalous patterns (massive parameter tampering, high-rate failed logins), and onboard these events into SIEM/analytic dashboards.
+      </li>
+    </ul>
+
+    <!-- Wrap-up paragraph (2 sentences) -->
+    <p style="max-width:900px; margin:0 auto 1.5rem auto; text-align:left;">
+      For each finding the card includes proof-of-concept requests, example payloads, and remediation steps in the developer-friendly format used in my submitted reports. Implementing the recommended fixes (server-side validation, parameterized queries, CSP, MFA, artifact hygiene, and logging) closes the attack surface and enables earlier detection of any future misuse.
+    </p>
   </div>
+</div>
 
-  <!-- Offensive Row 2 -->
-  <div class="Row">
-    <div class="Column_2">
-      <img src="images/projects/offensive-3.png" alt="Offensive 3">
-      <h1>Offensive 3 — XSS & Client-Side Controls</h1>
-      <p>
-        I injected controlled XSS payloads into fields that lacked robust output encoding. 
-        The payload confirmed DOM execution and demonstrated potential session theft. 
-        I showed how client-side checks alone could be bypassed with direct requests. 
-        I recommended output encoding, CSP headers, and server-side validation as layered defenses. 
-        I included sample secure templates and a minimal CSP starter policy. 
-        Test evidence captured the payload execution and network traces. 
-        This improved my ability to link exploit paths to concrete mitigations.
-      </p>
-    </div>
-
-    <div class="Column_1">
-      <img src="images/projects/offensive-4.png" alt="Offensive 4">
-      <h1>Offensive 4 — Poison Null Byte & Backup Discovery</h1>
-      <p>
-        I combined directory probing with a poison null byte technique to bypass naive filters. 
-        That access revealed a forgotten backup containing sensitive app logic. 
-        I reviewed the backup to map hidden endpoints and insecure assumptions. 
-        I proposed hardening: strict filename validation, deny-lists, and serving static files via safe handlers. 
-        I recommended scanning for stray backups in CI/CD and production storage. 
-        Results were summarized with exact request examples and fix priorities. 
-        The challenge highlighted how small misconfigurations can enable major data exposure.
-      </p>
-    </div>
-  </div>
-
-  <!-- Offensive Row 3 -->
-  <div class="Row">
-    <div class="Column_2">
-      <img src="images/projects/offensive-5.png" alt="Offensive 5">
-      <h1>Offensive 5 — Review Tampering & Validation Gaps</h1>
-      <p>
-        I analyzed review workflows and found weak server-side validation of ratings and text. 
-        By altering payloads, I posted out-of-policy reviews and edge values. 
-        I documented how client-side rules were easily bypassed with intercepted requests. 
-        I proposed server-enforced schemas, rate limits, and integrity checks. 
-        I added test vectors to QA scripts to prevent regressions. 
-        Evidence included before/after states and diffed payloads. 
-        The outcome clarified how to enforce integrity beyond the UI layer.
-      </p>
-    </div>
-
-    <div class="Column_1">
-      <img src="images/projects/offensive-6.png" alt="Offensive 6">
-      <h1>Offensive 6 — Password Policy & Account Protections</h1>
-      <p>
-        I reviewed password flows and highlighted minimum-strength and reuse weaknesses. 
-        I showed how weak policy compounds risk when MFA and lockouts are absent. 
-        I proposed NIST-aligned guidance for length, breach-list checks, and throttling. 
-        I recommended MFA rollout and session-hardening measures. 
-        I prepared developer tickets with acceptance criteria and test steps. 
-        Screenshots documented policy bypass edge cases. 
-        This work tied offensive findings directly to practical hardening tasks.
-      </p>
-    </div>
-  </div>
-
-  <!-- Offensive Row 4 -->
-  <div class="Row">
-    <div class="Column_2">
-      <img src="images/projects/offensive-7.png" alt="Offensive 7">
-      <h1>Offensive 7 — Forgotten Backup & Privilege Escalation</h1>
-      <p>
-        I discovered a backup artifact revealing configuration secrets and internal routes. 
-        Mapping those routes exposed an overlooked admin path with weak checks. 
-        I responsibly demonstrated limited escalation in the safe lab to validate impact. 
-        I proposed secret rotation, scoped tokens, and audit of legacy routes. 
-        I added a process step to purge artifacts before deployment. 
-        I provided an engineering checklist to prevent recurrence. 
-        This emphasized secure configuration management alongside code fixes.
-      </p>
-    </div>
-
-    <div class="Column_1">
-      <img src="images/projects/placeholder.png" alt="Extra Offensive Placeholder">
-      <h1>Bonus — Parameter Tampering & Hidden APIs</h1>
-      <p>
-        I enumerated hidden endpoints via developer tools and predictable routes. 
-        Using parameter tampering, I accessed functionality not surfaced in the UI. 
-        I documented precise diffed requests for developers to reproduce locally. 
-        I recommended explicit allow-lists and server-side capability checks. 
-        I added regression tests to block unsafe parameter names. 
-        Screenshots and timings support triage prioritization. 
-        The lesson: treat client input as hostile and validate capabilities on the server.
-      </p>
-    </div>
-  </div>
 
   <!-- DEFENSIVE SECTION -->
   <div id="defensive"></div>
