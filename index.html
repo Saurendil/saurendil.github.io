@@ -1,146 +1,214 @@
 <!DOCTYPE html>
-<html>
-<!--Head-->
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" />
-    <title>Morgan Lucero</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morgan Lucero — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ====== Base ====== */
+    :root{
+      --bg:#0a0f14;
+      --fg:#ffffff;
+      --muted:#cbd5e1;
+      --accent:#04d4d4; /* neon cyan */
+      --accent-2:#7c3aed; /* violet pop for subtle accents */
+      --card:#0f1720;
+      --shadow:0 10px 30px rgba(0,0,0,.45);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%;}
+    body{
+      font-family:'Quicksand',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+      color:var(--fg);
+      background:var(--bg);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{filter:brightness(1.1)}
 
+    /* ====== Layout helpers ====== */
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .Row{display:grid;grid-template-columns:1fr;gap:32px;align-items:center;margin:64px 0}
+    .Column_1,.Column_2{width:100%}
+    .Column_tall img{height:100%;object-fit:cover}
+
+    @media(min-width:860px){
+      .Row{grid-template-columns:1.1fr .9fr}
+    }
+
+    /* ====== Navbar ====== */
+    .Navbar{
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      backdrop-filter:saturate(150%) blur(8px);
+      background:linear-gradient(180deg, rgba(10,15,20,.8), rgba(10,15,20,.35) 70%, rgba(10,15,20,0));
+      border-bottom:1px solid rgba(4,212,212,.15);
+    }
+    .nav-inner{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:14px 0}
+    .nav-left,.nav-right{display:flex;align-items:center;gap:16px}
+    .brand{font-weight:700;letter-spacing:.4px}
+    .nav-link{color:var(--fg);opacity:.9}
+    .nav-link.active{color:var(--accent)}
+
+    /* ====== Hero (video) ====== */
+    #Home{position:relative;height:72vh;min-height:460px;margin-top:64px}
+    #Video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(105%) contrast(105%)}
+    .overlay{position:absolute;inset:0;background:radial-gradient(120% 110% at 50% 15%, rgba(4,212,212,.25) 0%, rgba(124,58,237,.18) 35%, rgba(10,15,20,.80) 70%)}
+    .Video_Text{position:relative;z-index:2;height:100%;display:flex;align-items:center}
+    .hero-card{
+      background:rgba(15,23,32,.65);
+      border:1px solid rgba(4,212,212,.25);
+      box-shadow:var(--shadow);
+      border-radius:var(--radius);
+      padding:28px;
+      max-width:820px;
+    }
+    h1{margin:0 0 10px 0;font-size:clamp(28px,4.2vw,44px);text-transform:uppercase;text-align:left;letter-spacing:.6px;color:#fff;text-shadow:0 0 22px rgba(4,212,212,.55)}
+    .lead{color:var(--muted)}
+
+    /* ====== Buttons ====== */
+    .buttons{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 16px;border-radius:999px;border:1px solid rgba(4,212,212,.5);
+      color:#0b1a1f;background:linear-gradient(180deg, rgba(4,212,212,.95), rgba(4,212,212,.8));
+      font-weight:600;box-shadow:0 6px 18px rgba(4,212,212,.22);
+      transition:transform .15s ease, filter .15s ease;
+    }
+    .btn:hover{transform:translateY(-1px);filter:brightness(1.03)}
+    .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.25);box-shadow:none}
+
+    /* project button (alias for consistency) */
+    .project-button{comp:revert}
+    .project-button{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:999px;border:1px solid rgba(4,212,212,.5);color:#0b1a1f;background:linear-gradient(180deg, rgba(4,212,212,.95), rgba(4,212,212,.8));font-weight:600;box-shadow:0 6px 18px rgba(4,212,212,.22);transition:transform .15s ease, filter .15s ease}
+    .project-button:hover{transform:translateY(-1px);filter:brightness(1.03)}
+
+    /* ====== Sections ====== */
+    section{scroll-margin-top:90px}
+    .card{
+      background:var(--card);
+      border:1px solid rgba(124,58,237,.15);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+    img{max-width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
+
+    /* ====== Footer ====== */
+    footer{margin:64px 0 40px 0;color:var(--muted);text-align:center}
+  </style>
 </head>
-
-<!--Body-->
-
-<body class="Background">
-
-    <!--Navbar-->
-    <div class="Navbar">
-        <a class="active" href="#Home">Home</a>
-        <a href="#About">About</a>
-        <a href="#GitHub">GitHub</a>
-        <a href="#Contact">Contact</a>
+<body>
+  <!-- Navbar -->
+  <nav class="Navbar">
+    <div class="container nav-inner">
+      <div class="nav-left">
+        <span class="brand">Morgan Lucero</span>
+        <a class="nav-link active" href="#Home">Home</a>
+        <a class="nav-link" href="#About">About</a>
+        <a class="nav-link" href="#GitHub">GitHub</a>
+        <a class="nav-link" href="#Contact">Contact</a>
+      </div>
+      <div class="nav-right buttons">
+        <a href="projects.html" class="btn">View My Projects</a>
+        <a href="https://github.com/Saurendil" class="btn ghost" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://docs.google.com/document/d/1nS7XS1bc5AvvSdDb_deY26wcf18DyEKcd9okRtHxuQc/view?usp=sharing" class="btn ghost" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a href="https://www.linkedin.com/in/mordluc-vet-cyber/" class="btn ghost" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
     </div>
+  </nav>
 
-    <!--Breaks inserted to add space between navbar and the first heading-->
-    <br>
-    <br>
-
-    <!--Background video-->
-    <div id="Home">
-        <video autoplay muted loop id="Video">
-            <source src="images/video.mp4" type="video/mp4">
-            <!--Display message if video fails to run-->
-            Your browser does not support HTML5 video.
-        </video>
-    </div>
-
-    <!--Video text-->
-    <div class="Video_Text">
-        <h1 class="white-text">Morgan Lucero's Portfolio</h1>
-        <strong>
-            <p class="center">
-                <q>Wisdom is not a product of schooling but of the lifelong attempt to aquire it.
-                </q>
-                <br> -Albert Einstein
-                <br>
-                <br> My name is Morgan Lucero. Welcome to my portfolio website. On it you can review my background and
-                experience.
-                <br>
-                <br> 
-            </p>
-        </strong>
-    </div>
-
-    <!--About section-->
-    <div class="Row" id="About">
-        <!--Left column-->
-        <div class="Column_2">
-            <img src="images/image-1.jpg" alt="Ethereal colorful code image">
+  <!-- Hero with background video -->
+  <header id="Home">
+    <video autoplay muted loop id="Video" playsinline>
+      <source src="images/video.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay"></div>
+    <div class="container Video_Text">
+      <div class="hero-card">
+        <h1>Morgan Lucero's Portfolio</h1>
+        <p class="lead">
+          <q>Wisdom is not a product of schooling but of the lifelong attempt to acquire it.</q><br/>— Albert Einstein
+        </p>
+        <p class="lead">
+          Welcome—explore my background, experience, and hands‑on security work.
+        </p>
+        <div class="buttons" style="margin-top:10px">
+          <a href="projects.html" class="btn">View My Projects</a>
+          <a href="https://docs.google.com/document/d/1nS7XS1bc5AvvSdDb_deY26wcf18DyEKcd9okRtHxuQc/view?usp=sharing" class="btn ghost" target="_blank" rel="noopener noreferrer">View Resume</a>
+          <a href="https://www.linkedin.com/in/mordluc-vet-cyber/" class="btn ghost" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-        <!--Right column-->
-        <div class="Column_1">
-            <h1>About</h1>
-            <p>
-                I am a US Army Veteran with the goal to work in the Cyber Security field. I was an Intelligence Analyst with a Top Secrect SCI clearace and 
-                I earned an Associate's Degree in Criminal Justice. I have passion for service, protection, and "thinking" like the bad guy. 
-                As a husband and father of two, I love spending time with my family, camping, kayaking and hiking. 
-                <br>
-                <br>I am a graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech
-                    Academy</a>’s Cyber Security Boot Camp, and trained and experienced in the following web and
-                programming languages, HTML and CSS. I have completed courses in Hardware and Networks Security, Front
-                End Developments and Security, Back End Security, and Cyber Security. Dring the live Project i completed 
-                <br>
-                <br>I am passionate, and motivated to begin my career in the Cyber Security field. <a
-                    href="#Contact">Contact</a> me below!
-            </p>
-        </div>
+      </div>
     </div>
+  </header>
 
-  <!--GitHub & Projects section-->
-<div class="Row" id="GitHub">
-    <!--Left column-->
-    <div class="Column_1">
-        <h1>GitHub</h1>
-        <p>
-            You can view my coding projects on my GitHub profile here:
-        </p>
-        <p class="center">
-          <a href="https://github.com/Saurendil" target="_blank" class="project-button">View My GitHub Profile</a>
-        </p>
-
-        <br>
-        <p>
-            Or browse a curated list of my offensive & defensive security work directly:
-        </p>
-        <p class="center">
-            <a class="project-button" href="projects.html">View My Projects</a>
-        </p>
-    </div>
-    <!--Right column-->
+  <!-- About -->
+  <section id="About" class="container Row">
     <div class="Column_2">
-        <a href="https://github.com/Saurendil" target="_blank"><img src="images/github-1.png"
-                alt="GitHub Logo"></a>
+      <img src="images/image-1.jpg" alt="Abstract colorful code imagery" />
     </div>
-</div>
-
-
-    <!--Contact section-->
-    <div class="Row" id="Contact">
-        <!--Contact image, left column-->
-        <div class="Column_2 Column_tall">
-            <img src="images/contact.jpg" alt="Contact_Image">
-        </div>
-        <!--Contact form, right column-->
-        <div class="Column_1 Column_tall">
-            <h1>Contact</h1>
-            <!--This specifies where and how to send the form data; we are leaving it blank-->
-            <form action="" method="POST">
-                <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
-                <label>Name:</label>
-                <input type="text" placeholder="Please enter your name here">
-                <label>Email:</label>
-                <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                <label>Message:</label>
-                <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-                <input type="submit" value="SUBMIT">
-            </form>
-        </div>
+    <div class="Column_1 card">
+      <h2 style="margin-top:0">About</h2>
+      <p>
+        I am a U.S. Army Veteran pursuing a career in Cyber Security. I served as an Intelligence Analyst with a Top Secret/SCI clearance and earned an Associate's Degree in Criminal Justice. I’m passionate about service, protection, and thinking like the adversary. As a husband and father of two, I enjoy camping, kayaking, and hiking.
+      </p>
+      <p>
+        I’m a graduate of <a href="https://www.learncodinganywhere.com" target="_blank" rel="noopener noreferrer">The Tech Academy</a>’s Cyber Security Boot Camp. My work spans Hardware & Network Security, Front‑End Development & Security, Back‑End Security, and core Cyber Security concepts. I build with HTML & CSS and document findings through structured incident reports and live‑project exercises.
+      </p>
+      <p>
+        I’m motivated to launch my career in Cyber Security—feel free to <a href="#Contact">contact me below</a>.
+      </p>
     </div>
+  </section>
 
-    <!--Footer section-->
-    <footer>
-        <p>
-        <p class="center">&copy Prosper Consulting Inc., <a href="https://www.learncodinganywhere.com/"
-                target="_blank">The Tech Academy</a></p>
-        <br>
-        </p>
-    </footer>
+  <!-- GitHub & Projects -->
+  <section id="GitHub" class="container Row">
+    <div class="Column_1 card">
+      <h2 style="margin-top:0">GitHub</h2>
+      <p>You can view my projects on GitHub here:</p>
+      <p>
+        <a href="https://github.com/Saurendil" target="_blank" rel="noopener noreferrer" class="project-button">View My GitHub Profile</a>
+      </p>
+      <p>Or browse a curated list of offensive & defensive security work directly:</p>
+      <p>
+        <a class="project-button" href="projects.html">View My Projects</a>
+      </p>
+    </div>
+    <div class="Column_2">
+      <a href="https://github.com/Saurendil" target="_blank" rel="noopener noreferrer">
+        <img src="images/github-1.png" alt="GitHub logo" />
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="Contact" class="container Row">
+    <div class="Column_2 Column_tall">
+      <img src="images/contact.jpg" alt="Contact" />
+    </div>
+    <div class="Column_1 card">
+      <h2 style="margin-top:0">Contact</h2>
+      <form action="" method="POST">
+        <label for="name">Name:</label>
+        <input id="name" type="text" placeholder="Please enter your name here" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1520;color:#fff;margin:8px 0 16px 0" />
+
+        <label for="Email">Email:</label>
+        <input id="Email" name="Email" type="email" placeholder="Please enter your email here" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1520;color:#fff;margin:8px 0 16px 0" />
+
+        <label for="Message">Message:</label>
+        <textarea id="Message" name="Message" placeholder="Please write your message here" rows="4" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1520;color:#fff;margin:8px 0 18px 0"></textarea>
+
+        <input type="submit" value="SUBMIT" class="btn" />
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; Prosper Consulting Inc. — <a href="https://www.learncodinganywhere.com/" target="_blank" rel="noopener noreferrer">The Tech Academy</a></p>
+  </footer>
 </body>
 </html>
-
-
-
-
-
