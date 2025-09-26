@@ -1,129 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Cybersecurity Projects</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morgan Lucero — Cybersecurity Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ====== Theme & Base ====== */
+    :root{
+      --bg:#0a0f14; --fg:#ffffff; --muted:#cbd5e1;
+      --accent:#04d4d4; --accent-2:#7c3aed;
+      --card:#0f1720; --shadow:0 10px 30px rgba(0,0,0,.45);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%}
+    body{font-family:'Quicksand',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;color:var(--fg);background:var(--bg);line-height:1.6;overflow-x:hidden}
+    a{color:var(--accent);text-decoration:none}
+
+    /* ====== Utilities ====== */
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .Row{display:grid;grid-template-columns:1fr;gap:32px;align-items:start;margin:64px 0}
+    @media(min-width:860px){.Row{grid-template-columns:1.1fr .9fr}}
+    img{max-width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
+    h1{margin:0 0 10px 0;font-size:clamp(28px,4.2vw,44px);text-transform:uppercase;letter-spacing:.6px;color:#fff;text-shadow:0 0 22px rgba(4,212,212,.55)}
+    h2{margin:0 0 12px 0;font-size:clamp(22px,3vw,30px)}
+    h3{margin:10px 0 8px 0}
+    .lead{color:var(--muted)}
+
+    /* ====== Navbar ====== */
+    .Navbar{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:saturate(150%) blur(8px);background:linear-gradient(180deg, rgba(10,15,20,.8), rgba(10,15,20,.35) 70%, rgba(10,15,20,0));border-bottom:1px solid rgba(4,212,212,.15)}
+    .nav-inner{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:14px 0}
+    .nav-left{display:flex;align-items:center;gap:16px}
+    .brand{font-weight:700;letter-spacing:.4px}
+    .nav-link{color:var(--fg);opacity:.9}
+    .nav-link.active{color:var(--accent)}
+
+    /* ====== Hero (video) ====== */
+    header{position:relative;height:56vh;min-height:420px;margin-top:64px}
+    #Video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(105%) contrast(105%)}
+    .overlay{position:absolute;inset:0;background:radial-gradient(120% 110% at 50% 15%, rgba(4,212,212,.25) 0%, rgba(124,58,237,.18) 35%, rgba(10,15,20,.80) 70%)}
+    .Video_Text{position:relative;z-index:2;height:100%;display:flex;align-items:center}
+    .hero-card{background:rgba(15,23,32,.65);border:1px solid rgba(4,212,212,.25);box-shadow:var(--shadow);border-radius:var(--radius);padding:28px;max-width:860px}
+
+    /* ====== Cards & Grids ====== */
+    .section{scroll-margin-top:90px}
+    .card{background:var(--card);border:1px solid rgba(124,58,237,.15);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+
+    .project-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:16px}
+    @media(min-width:720px){.project-grid{grid-template-columns:1fr 1fr}}
+
+    .project-card{background:var(--card);border:1px solid rgba(4,212,212,.15);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;display:flex;flex-direction:column;gap:14px}
+    .thumbnail-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .thumbnail-gallery img{cursor:pointer;border:1px solid rgba(255,255,255,.1)}
+
+    /* ====== Lightbox ====== */
+    #lightbox{display:none;position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.8);align-items:center;justify-content:center;padding:24px}
+    #lightbox img{max-width:min(1100px,92vw);max-height:80vh}
+
+    /* ====== Footer ====== */
+    footer{margin:64px 0 40px 0;color:var(--muted);text-align:center}
+  </style>
 </head>
-<body class="Background">
-
+<body>
   <!-- Navbar -->
-  <div class="Navbar">
-      <a href="index.html">Home</a>
-      <a href="#defensive">Defensive</a>
-      <a href="#offensive">Offensive</a>
-  </div>
+  <nav class="Navbar">
+    <div class="container nav-inner">
+      <div class="nav-left">
+        <a class="brand nav-link" href="index.html">Morgan Lucero</a>
+        <a class="nav-link" href="index.html#Home">Home</a>
+        <a class="nav-link active" href="#defensive">Defensive</a>
+        <a class="nav-link" href="#offensive">Offensive</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- Background video -->
-  <video autoplay muted loop id="Video">
-    <source src="images/video.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-
-  <!-- Overlay text -->
-  <div class="Video_Text">
-    <h1>Cybersecurity Projects</h1>
-    <p class="center">
-      Hands-on work in both <strong>Defensive Security</strong> and <strong>Offensive Security</strong>, 
-      completed during live project exercises and training labs.
-    </p>
-  </div>
+  <!-- Hero with background video -->
+  <header>
+    <video autoplay muted loop id="Video" playsinline>
+      <source src="images/video.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay"></div>
+    <div class="container Video_Text">
+      <div class="hero-card">
+        <h1>Cybersecurity Projects</h1>
+        <p class="lead">Hands‑on work in both <strong>Defensive Security</strong> and <strong>Offensive Security</strong>, completed during live‑project exercises and training labs.</p>
+      </div>
+    </div>
+  </header>
 
   <!-- Defensive Section -->
-  <div id="defensive" class="Row">
-    <h1>Defensive Projects</h1>
-    <div class="project-grid">
+  <section id="defensive" class="container section" aria-labelledby="def-title">
+    <div class="card" style="margin-top:28px">
+      <h2 id="def-title">Defensive Projects</h2>
+      <div class="project-grid">
 
-      <div class="project-card">
-        <div class="thumbnail-gallery">
-          <img src="images/malware analysis1.png" alt="Wireshark Screenshot 1" onclick="openLightbox(this)">
-          <img src="images/malware traffic.1.png" alt="Wireshark Screenshot 2" onclick="openLightbox(this)">
-          <img src="images/malware traffic.png" alt="Wireshark Screenshot 3" onclick="openLightbox(this)">
-        </div>
-        <h3>Find the Culprit – Malware Network Traffic Analysis</h3>
-        <p>
-          Analyzed a PCAP file in Wireshark to track a Windows host infected by malware. 
-          Identified suspicious domains, unusual SMB and DNS requests, and confirmed the 
-          attack involved a Trojan/backdoor. Created a full incident report documenting 
-          IPs, MAC addresses, hostnames, and exfiltration methods. 
-          Highlighted attacker persistence tactics and gave defensive recommendations 
-          such as implementing stricter egress filtering and DNS monitoring. 
-          Reinforced best practices for network forensics and detection of real-world 
-          malware activity.
-        </p>
+        <!-- Defensive Card 1 -->
+        <article class="project-card">
+          <div class="thumbnail-gallery">
+            <img src="images/malware analysis1.png" alt="Wireshark screenshot 1" onclick="openLightbox(this)" />
+            <img src="images/malware traffic.1.png" alt="Wireshark screenshot 2" onclick="openLightbox(this)" />
+            <img src="images/malware traffic.png" alt="Wireshark screenshot 3" onclick="openLightbox(this)" />
+          </div>
+          <h3>Find the Culprit — Malware Network Traffic Analysis</h3>
+          <p>
+            Analyzed a PCAP in Wireshark/TShark to track a Windows host infected by malware. Identified suspicious DNS and HTTP beacons, traced C2 domains, and confirmed Trojan/backdoor activity. Delivered a structured incident report with IOCs, timeline, and containment recommendations including stricter egress filtering and DNS monitoring.
+          </p>
+        </article>
+
+        <!-- Defensive Card 2 -->
+        <article class="project-card">
+          <div class="thumbnail-gallery">
+            <img src="images/malware traffic.1.png" alt="PowerShell forensic screenshot 1" onclick="openLightbox(this)" />
+            <img src="images/malware traffic.png" alt="PowerShell forensic screenshot 2" onclick="openLightbox(this)" />
+            <img src="images/malware traffic.1.png" alt="PowerShell forensic screenshot 3" onclick="openLightbox(this)" />
+          </div>
+          <h3>Malware Deep Investigation — PowerShell Keylogger</h3>
+          <p>
+            Investigated a malicious PowerShell keylogger with SMTP exfiltration. Uncovered hard‑coded credentials, registry‑based persistence, and DLL imports. Documented IOCs, decoded obfuscation, and recommended mitigations: block outbound SMTP, tighten endpoint telemetry, and enforce PowerShell execution policies.
+          </p>
+        </article>
+
       </div>
-
-      <div class="project-card">
-        <div class="thumbnail-gallery">
-          <img src="images/malware traffic.1.png" alt="PowerShell Screenshot 1" onclick="openLightbox(this)">
-          <img src="images/malware traffic.png" alt="PowerShell Screenshot 2" onclick="openLightbox(this)">
-          <img src="images/malware traffic.1.png" alt="PowerShell Screenshot 3" onclick="openLightbox(this)">
-        </div>
-        <h3>Malware Deep Investigation</h3>
-        <p>
-           Investigated a malicious PowerShell keylogger script designed to capture keystrokes 
-          and exfiltrate them via SMTP. Discovered hardcoded email credentials, DLL imports, 
-          and persistence mechanisms such as registry modification. Broke down obfuscation, 
-          tracked file write operations, and identified clear indicators of compromise (IOCs). 
-          Documented how the script communicated with external mail servers and recommended 
-          mitigations including blocking outbound SMTP traffic, strengthening endpoint monitoring, 
-          and enforcing PowerShell execution policies. Reinforced my malware reverse engineering 
-          and detection skills in a defensive context.
-        </p>
-      </div>
-
     </div>
-  </div>
+  </section>
 
   <!-- Offensive Section -->
-  <div id="offensive" class="Row">
-    <h1>Offensive Projects</h1>
-    <div class="project-grid">
+  <section id="offensive" class="container section" aria-labelledby="off-title">
+    <div class="card" style="margin-top:28px">
+      <h2 id="off-title">Offensive Projects</h2>
+      <div class="project-grid">
 
-      <div class="project-card">
-        <div class="thumbnail-gallery">
-          <img src="images/Screenshot 2025-09-09 130152.png" alt="Juice Shop Screenshot 1" onclick="openLightbox(this)">
-        </div>
-        <h3>OWASP Juice Shop Exploitation</h3>
-        <p>
-          Completed penetration testing challenges in the OWASP Juice Shop application, 
-          targeting vulnerabilities across the OWASP Top 10. Successfully exploited SQL injection 
-          to bypass login authentication, performed stored XSS to trigger malicious scripts, 
-          and bypassed CAPTCHA mechanisms using automation. Identified weak credentials in 
-          authentication flows and retrieved forgotten backup files via path traversal. 
-          Discovered insecure review and rating systems that allowed manipulation of product 
-          reputations. For each exploit, created proof-of-concept payloads and recommended 
-          developer mitigations such as parameterized queries, stronger session management, 
-          and improved access controls. These exercises reinforced offensive testing methodology 
-          and improved my ability to map vulnerabilities to their corresponding mitigations.
-        </p>
+        <!-- Offensive Card 1 -->
+        <article class="project-card">
+          <div class="thumbnail-gallery">
+            <img src="images/Screenshot 2025-09-09 130152.png" alt="OWASP Juice Shop exploit screenshot" onclick="openLightbox(this)" />
+          </div>
+          <h3>OWASP Juice Shop Exploitation</h3>
+          <p>
+            Completed targeted tests against OWASP Top 10 categories. Highlights: SQLi authentication bypass, stored XSS, CAPTCHA bypass automation, weak‑credential discovery, path traversal to retrieve backup files, and review manipulation. Produced PoCs and mapped fixes: parameterized queries, hardened session controls, and improved access policies.
+          </p>
+        </article>
+
       </div>
-
     </div>
-  </div>
+  </section>
 
   <!-- Lightbox -->
-  <div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="">
-  </div>
+  <div id="lightbox" onclick="closeLightbox()"><img id="lightbox-img" src="" alt="Expanded project screenshot" /></div>
 
   <!-- Footer -->
   <footer>
-    <p class="center">&copy; 2025 Morgan Lucero. All Rights Reserved.</p>
+    <p>&copy; 2025 Morgan Lucero. All Rights Reserved.</p>
   </footer>
 
-  <!-- JavaScript for Lightbox -->
+  <!-- Lightbox JS -->
   <script>
-    function openLightbox(imgElement) {
-      document.getElementById("lightbox").style.display = "flex";
-      document.getElementById("lightbox-img").src = imgElement.src;
+    function openLightbox(img){
+      const lb=document.getElementById('lightbox');
+      const target=document.getElementById('lightbox-img');
+      target.src=img.src; lb.style.display='flex';
     }
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
+    function closeLightbox(){
+      const lb=document.getElementById('lightbox');
+      const target=document.getElementById('lightbox-img');
+      target.src=''; lb.style.display='none';
     }
   </script>
-
 </body>
 </html>
