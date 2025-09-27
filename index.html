@@ -115,18 +115,33 @@
     <!-- Bottom bun: Contact (full-width card) -->
     <section id="Contact" class="card centered-block">
       <h2 style="margin-top:0">Contact</h2>
-      <form action="" method="POST">
-        <label for="name">Name:</label>
-        <input id="name" type="text" placeholder="Please enter your name here" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1520;color:#fff;margin:8px 0 16px 0" />
+     <form action="https://formspree.io/f/xpwpjdpa" method="POST" autocomplete="on">
+  <label for="name">Name:</label>
+  <input id="name" name="name" type="text"
+         placeholder="Please enter your name here"
+         style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1520;color:#fff;margin:8px 0 16px 0"
+         required />
 
-        <label for="Email">Email:</label>
-        <input id="Email" name="Email" type="email" placeholder="Please enter your email here" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1520;color:#fff;margin:8px 0 16px 0" />
+  <label for="Email">Email:</label>
+  <input id="Email" name="email" type="email"
+         placeholder="Please enter your email here"
+         style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1520;color:#fff;margin:8px 0 16px 0"
+         required />
 
-        <label for="Message">Message:</label>
-        <textarea id="Message" name="Message" placeholder="Please write your message here" rows="4" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1520;color:#fff;margin:8px 0 18px 0"></textarea>
+  <label for="Message">Message:</label>
+  <textarea id="Message" name="message" rows="4"
+            placeholder="Please write your message here"
+            style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1520;color:#fff;margin:8px 0 18px 0"
+            required></textarea>
 
-        <input type="submit" value="SUBMIT" class="btn" />
-      </form>
+  <!-- Optional: simple honeypot to reduce spam -->
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+  <!-- Optional: redirect to a 'thanks' page after submit -->
+  <input type="hidden" name="_redirect" value="https://saurendil.github.io/thanks.html" />
+
+  <button type="submit" class="btn">SUBMIT</button>
+</form>
     </section>
   </main>
 
@@ -135,3 +150,4 @@
   </footer>
 </body>
 </html>
+
