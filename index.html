@@ -12,48 +12,51 @@
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;height:100%}
-    body{font-family:'Quicksand',sans-serif;color:var(--fg);background:var(--bg);line-height:1.6;overflow-x:hidden}
+    body{font-family:'Quicksand',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;color:var(--fg);background:var(--bg);line-height:1.6;overflow-x:hidden}
     a{color:var(--accent);text-decoration:none}
-    a:hover{filter:brightness(1.05)}
 
+    /* Layout */
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    .stack{display:flex;flex-direction:column;gap:32px;margin:64px 0}
+    .stack{display:flex;flex-direction:column;gap:32px;margin:64px auto;align-items:center}
 
-    /* ====== Navbar ====== */
+    /* Navbar */
     .Navbar{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:saturate(150%) blur(8px);background:linear-gradient(180deg, rgba(10,15,20,.8), rgba(10,15,20,.35) 70%, rgba(10,15,20,0));border-bottom:1px solid rgba(4,212,212,.15)}
     .nav-inner{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:14px 0}
     .nav-left{display:flex;align-items:center;gap:10px}
     .brand{font-weight:700;letter-spacing:.4px;margin-right:8px}
-
-    /* Ghost-style nav links that fill on interaction */
+    /* Ghost nav links that fill on interaction */
     .nav-link{display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;border-radius:999px;border:1px solid rgba(4,212,212,.5);background:transparent;color:var(--accent);font-weight:600;transition:transform .15s ease, filter .15s ease, background .15s ease, box-shadow .15s ease, color .15s ease}
     .nav-link:hover,.nav-link:focus,.nav-link:active{background:linear-gradient(180deg, rgba(4,212,212,.95), rgba(4,212,212,.8));color:#0b1a1f;box-shadow:0 6px 18px rgba(4,212,212,.22);transform:translateY(-1px)}
 
-    /* ====== Hero (video) ====== */
+    /* Hero (video) */
     #Home{position:relative;height:72vh;min-height:460px;margin-top:64px}
-    #Video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(105%) contrast(105%)}
-    .overlay{position:absolute;inset:0;background:radial-gradient(120% 110% at 50% 15%, rgba(4,212,212,.25) 0%, rgba(124,58,237,.18) 35%, rgba(10,15,20,.80) 70%)}
-    .Video_Text{position:relative;z-index:2;height:100%;display:flex;align-items:center}
-    .hero-card{background:rgba(15,23,32,.65);border:1px solid rgba(4,212,212,.25);box-shadow:var(--shadow);border-radius:var(--radius);padding:28px;max-width:920px}
+    /* Explicit stacking so hero never hides */
+    #Video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;background:#0a0f14}
+    .overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 110% at 50% 15%, rgba(4,212,212,.25) 0%, rgba(124,58,237,.18) 35%, rgba(10,15,20,.80) 70%)}
+    .Video_Text{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center}
+    .hero-card{background:rgba(15,23,32,.65);border:1px solid rgba(4,212,212,.25);box-shadow:var(--shadow);border-radius:var(--radius);padding:28px;max-width:920px;margin:0 auto}
     h1{margin:0 0 10px 0;font-size:clamp(28px,4.2vw,44px);text-transform:uppercase;color:#fff;text-shadow:0 0 22px rgba(4,212,212,.55)}
     .lead{color:var(--muted)}
 
-    /* ====== Buttons (ghost by default; fill on press/hover) ====== */
-    .buttons{display:flex;flex-wrap:wrap;gap:12px}
+    /* Buttons (ghost by default; fill on press/hover) */
+    .buttons{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:999px;border:1px solid rgba(4,212,212,.5);background:transparent;color:var(--accent);font-weight:600;transition:transform .15s ease, filter .15s ease, background .15s ease, box-shadow .15s ease, color .15s ease}
     .btn:hover,.btn:focus,.btn:active{background:linear-gradient(180deg, rgba(4,212,212,.95), rgba(4,212,212,.8));color:#0b1a1f;box-shadow:0 6px 18px rgba(4,212,212,.22);transform:translateY(-1px)}
 
-    section{scroll-margin-top:90px}
-    .card{background:var(--card);border:1px solid rgba(124,58,237,.15);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+    /* Sections & Cards */
+    section{scroll-margin-top:90px;width:100%;display:flex;justify-content:center}
+    .card{background:var(--card);border:1px solid rgba(124,58,237,.15);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;max-width:900px;width:100%;text-align:center}
     img{max-width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
 
-    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    /* 3‑photo gallery (side-by-side, never stacked) */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;width:100%}
     @media(max-width:640px){.gallery{grid-template-columns:repeat(3,1fr)}}
 
     footer{margin:64px 0 40px 0;color:var(--muted);text-align:center}
   </style>
 </head>
 <body>
+  <!-- Navbar -->
   <nav class="Navbar">
     <div class="container nav-inner">
       <div class="nav-left">
@@ -65,9 +68,11 @@
     </div>
   </nav>
 
+  <!-- Hero with background video (poster ensures visible frame) -->
   <header id="Home">
-    <video autoplay muted loop id="Video" playsinline>
+    <video autoplay muted loop id="Video" playsinline poster="images/image-1.jpg">
       <source src="images/video.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
     </video>
     <div class="overlay"></div>
     <div class="container Video_Text">
@@ -75,6 +80,8 @@
         <h1>Morgan Lucero's Portfolio</h1>
         <p class="lead"><q>Wisdom is not a product of schooling but of the lifelong attempt to acquire it.</q><br/>— Albert Einstein</p>
         <p class="lead">Welcome—explore my background, experience, and hands‑on security work.</p>
+        
+        <!-- Buttons (single unified section) -->
         <div class="buttons" style="margin-top:10px">
           <a href="projects.html" class="btn">View My Projects</a>
           <a href="https://docs.google.com/document/d/1nS7XS1bc5AvvSdDb_deY26wcf18DyEKcd9okRtHxuQc/view?usp=sharing" class="btn" target="_blank" rel="noopener noreferrer">View My Resume</a>
@@ -85,14 +92,17 @@
     </div>
   </header>
 
+  <!-- Sandwich layout -->
   <main class="container stack">
+    <!-- Top bun: About (full-width card) -->
     <section id="About" class="card">
-      <h2>About</h2>
+      <h2 style="margin-top:0">About</h2>
       <p>I am a U.S. Army Veteran pursuing a career in Cyber Security. I served as an Intelligence Analyst with a Top Secret/SCI clearance and earned an Associate's Degree in Criminal Justice. I’m passionate about service, protection, and thinking like the adversary. As a husband and father of two, I enjoy camping, kayaking, and hiking.</p>
       <p>I’m a graduate of <a href="https://www.learncodinganywhere.com" target="_blank" rel="noopener noreferrer">The Tech Academy</a>’s Cyber Security Boot Camp. My work spans Hardware & Network Security, Front‑End Development & Security, Back‑End Security, and core Cyber Security concepts. I build with HTML & CSS and document findings through structured incident reports and live‑project exercises.</p>
       <p>I’m motivated to launch my career in Cyber Security—feel free to <a href="#Contact">contact me below</a>.</p>
     </section>
 
+    <!-- Burger: 3 photos in a row (using your exact filenames) -->
     <section aria-label="Featured images">
       <div class="gallery">
         <img src="images/image-1.jpg" alt="Abstract colorful code imagery" />
@@ -101,8 +111,9 @@
       </div>
     </section>
 
+    <!-- Bottom bun: Contact (full-width card) -->
     <section id="Contact" class="card">
-      <h2>Contact</h2>
+      <h2 style="margin-top:0">Contact</h2>
       <form action="" method="POST">
         <label for="name">Name:</label>
         <input id="name" type="text" placeholder="Please enter your name here" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1520;color:#fff;margin:8px 0 16px 0" />
