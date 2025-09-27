@@ -1,11 +1,27 @@
-Project Title: Name of your project.
 
-Description: A short explanation of what the project is (e.g., “A responsive portfolio site built with HTML, CSS, and JavaScript”).
+---
 
-Features: Highlight what the project demonstrates (e.g., “Responsive design, CSS animations, hover effects, flexbox/grid layouts”).
+# 📁 **Portfolio Website README**  
 
-How to Use: Steps to view or run the project (e.g., “Clone repo, open index.html in browser”).
+```markdown
+# Personal Portfolio Website
 
-Technologies Used: HTML, CSS, JavaScript, etc.
+## Description
+This is my personal portfolio website built with HTML, CSS, and JavaScript. It highlights my projects, skills, and contact information. The site features a modern dark theme with neon accents, responsive design, and interactive hover effects.
 
-Screenshots (optional): Add images if you want to showcase.
+## Features
+- Fully responsive design for desktop and mobile  
+- Animated text and glowing hover effects  
+- Sections for About Me, Projects, Skills, and Contact  
+- Links to GitHub profile and live projects  
+
+## How to Use
+Visit the live version on GitHub Pages:  
+👉 [My Portfolio Website](https://saurendil.github.io)  
+
+Or clone the repository and open `index.html` locally:
+
+```bash
+git clone https://github.com/saurendil/saurendil.github.io.git
+cd saurendil.github.io
+open index.html
