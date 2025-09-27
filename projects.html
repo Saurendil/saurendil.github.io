@@ -6,59 +6,51 @@
   <title>Morgan Lucero — Cybersecurity Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
-    /* ====== Theme & Base ====== */
     :root{
-      --bg:#0a0f14; --fg:#ffffff; --muted:#cbd5e1;
-      --accent:#04d4d4; --accent-2:#7c3aed;
-      --card:#0f1720; --shadow:0 10px 30px rgba(0,0,0,.45);
-      --radius:16px;
+      --bg:#0a0f14; --fg:#ffffff; --muted:#cbd5e1; --accent:#04d4d4;
+      --card:#0f1720; --shadow:0 10px 30px rgba(0,0,0,.45); --radius:16px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;height:100%}
     body{font-family:'Quicksand',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;color:var(--fg);background:var(--bg);line-height:1.6;overflow-x:hidden}
     a{color:var(--accent);text-decoration:none}
 
-    /* ====== Utilities ====== */
+    /* Layout */
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    .Row{display:grid;grid-template-columns:1fr;gap:32px;align-items:start;margin:64px 0}
-    @media(min-width:860px){.Row{grid-template-columns:1.1fr .9fr}}
-    img{max-width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
-    h1{margin:0 0 10px 0;font-size:clamp(28px,4.2vw,44px);text-transform:uppercase;letter-spacing:.6px;color:#fff;text-shadow:0 0 22px rgba(4,212,212,.55)}
-    h2{margin:0 0 12px 0;font-size:clamp(22px,3vw,30px)}
-    h3{margin:10px 0 8px 0}
-    .lead{color:var(--muted)}
 
-    /* ====== Navbar ====== */
+    /* Navbar */
     .Navbar{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:saturate(150%) blur(8px);background:linear-gradient(180deg, rgba(10,15,20,.8), rgba(10,15,20,.35) 70%, rgba(10,15,20,0));border-bottom:1px solid rgba(4,212,212,.15)}
     .nav-inner{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:14px 0}
-    .nav-left{display:flex;align-items:center;gap:16px}
-    .brand{font-weight:700;letter-spacing:.4px}
-    .nav-link{color:var(--fg);opacity:.9}
-    .nav-link.active{color:var(--accent)}
+    .nav-left{display:flex;align-items:center;gap:10px}
+    .brand{font-weight:700;letter-spacing:.4px;margin-right:8px}
+    /* Ghost nav links that fill on interaction */
+    .nav-link{display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;border-radius:999px;border:1px solid rgba(4,212,212,.5);background:transparent;color:var(--accent);font-weight:600;transition:transform .15s ease, filter .15s ease, background .15s ease, box-shadow .15s ease, color .15s ease}
+    .nav-link:hover,.nav-link:focus,.nav-link:active{background:linear-gradient(180deg, rgba(4,212,212,.95), rgba(4,212,212,.8));color:#0b1a1f;box-shadow:0 6px 18px rgba(4,212,212,.22);transform:translateY(-1px)}
 
-    /* ====== Hero (video) ====== */
+    /* Hero */
     header{position:relative;height:56vh;min-height:420px;margin-top:64px}
     #Video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(105%) contrast(105%)}
     .overlay{position:absolute;inset:0;background:radial-gradient(120% 110% at 50% 15%, rgba(4,212,212,.25) 0%, rgba(124,58,237,.18) 35%, rgba(10,15,20,.80) 70%)}
-    .Video_Text{position:relative;z-index:2;height:100%;display:flex;align-items:center}
-    .hero-card{background:rgba(15,23,32,.65);border:1px solid rgba(4,212,212,.25);box-shadow:var(--shadow);border-radius:var(--radius);padding:28px;max-width:860px}
+    .Video_Text{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center}
+    .hero-card{background:rgba(15,23,32,.65);border:1px solid rgba(4,212,212,.25);box-shadow:var(--shadow);border-radius:var(--radius);padding:28px;max-width:900px;margin:0 auto}
+    h1{margin:0 0 10px 0;font-size:clamp(28px,4.2vw,44px);text-transform:uppercase;color:#fff;text-shadow:0 0 22px rgba(4,212,212,.55)}
+    .lead{color:var(--muted)}
 
-    /* ====== Cards & Grids ====== */
-    .section{scroll-margin-top:90px}
-    .card{background:var(--card);border:1px solid rgba(124,58,237,.15);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
-
+    /* Cards & grid */
+    .section{scroll-margin-top:90px;width:100%;display:flex;justify-content:center}
+    .card{background:var(--card);border:1px solid rgba(124,58,237,.15);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;max-width:900px;width:100%}
     .project-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:16px}
     @media(min-width:720px){.project-grid{grid-template-columns:1fr 1fr}}
 
     .project-card{background:var(--card);border:1px solid rgba(4,212,212,.15);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;display:flex;flex-direction:column;gap:14px}
     .thumbnail-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    .thumbnail-gallery img{cursor:pointer;border:1px solid rgba(255,255,255,.1)}
+    .thumbnail-gallery img{max-width:100%;border-radius:var(--radius);box-shadow:var(--shadow);cursor:pointer;border:1px solid rgba(255,255,255,.1)}
 
-    /* ====== Lightbox ====== */
+    /* Lightbox */
     #lightbox{display:none;position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.8);align-items:center;justify-content:center;padding:24px}
-    #lightbox img{max-width:min(1100px,92vw);max-height:80vh}
+    #lightbox img{max-width:min(1100px,92vw);max-height:80vh;border-radius:12px}
 
-    /* ====== Footer ====== */
+    /* Footer */
     footer{margin:64px 0 40px 0;color:var(--muted);text-align:center}
   </style>
 </head>
@@ -67,9 +59,9 @@
   <nav class="Navbar">
     <div class="container nav-inner">
       <div class="nav-left">
-        <a class="brand nav-link" href="index.html">Morgan Lucero</a>
+        <a class="brand nav-link" href="index.html#Home">Morgan Lucero</a>
         <a class="nav-link" href="index.html#Home">Home</a>
-        <a class="nav-link active" href="#defensive">Defensive</a>
+        <a class="nav-link" href="#defensive">Defensive</a>
         <a class="nav-link" href="#offensive">Offensive</a>
       </div>
     </div>
@@ -91,9 +83,9 @@
   </header>
 
   <!-- Defensive Section -->
-  <section id="defensive" class="container section" aria-labelledby="def-title">
-    <div class="card" style="margin-top:28px">
-      <h2 id="def-title">Defensive Projects</h2>
+  <section id="defensive" class="section" aria-labelledby="def-title">
+    <div class="card">
+      <h2 id="def-title" style="margin:0 0 12px 0">Defensive Projects</h2>
       <div class="project-grid">
 
         <!-- Defensive Card 1 -->
@@ -127,9 +119,9 @@
   </section>
 
   <!-- Offensive Section -->
-  <section id="offensive" class="container section" aria-labelledby="off-title">
-    <div class="card" style="margin-top:28px">
-      <h2 id="off-title">Offensive Projects</h2>
+  <section id="offensive" class="section" aria-labelledby="off-title">
+    <div class="card">
+      <h2 id="off-title" style="margin:0 0 12px 0">Offensive Projects</h2>
       <div class="project-grid">
 
         <!-- Offensive Card 1 -->
