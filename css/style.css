@@ -358,8 +358,27 @@ form {
   box-shadow: 0 0 20px rgba(180,5,180,0.9);
 }
 
+/* Ensure the hero layers stack correctly */
+#Home { position: relative; }
+#Video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.overlay { position: absolute; inset: 0; z-index: 1; }
+
+/* Make sure the content sits above both */
+.Video_Text { position: relative; z-index: 2; }
+
+/* Visible fallback if video can't load/autoplay */
+#Home {
+  background:
+    radial-gradient(120% 110% at 50% 15%, rgba(4,212,212,.25) 0%, rgba(124,58,237,.18) 35%, rgba(10,15,20,.85) 70%),
+    #0a0f14; /* solid fallback */
+}
+
+/* (Optional) add a poster so users see an image while the video loads */
+#Video { background: #0a0f14 url("images/image-1.jpg") center/cover no-repeat; }
+
 
 /***** END PROJECT PAGE STYLING *****/
+
 
 
 
