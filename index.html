@@ -6,95 +6,50 @@
   <title>Morgan Lucero — Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* ====== Base ====== */
     :root{
-      --bg:#0a0f14;
-      --fg:#ffffff;
-      --muted:#cbd5e1;
-      --accent:#04d4d4; /* neon cyan */
-      --card:#0f1720;
-      --shadow:0 10px 30px rgba(0,0,0,.45);
-      --radius:16px;
+      --bg:#0a0f14; --fg:#ffffff; --muted:#cbd5e1;
+      --accent:#04d4d4; --card:#0f1720; --shadow:0 10px 30px rgba(0,0,0,.45); --radius:16px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;height:100%;}
-    body{
-      font-family:'Quicksand',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
-      color:var(--fg);
-      background:var(--bg);
-      line-height:1.6;
-      overflow-x:hidden;
-    }
+    html,body{margin:0;padding:0;height:100%}
+    body{font-family:'Quicksand',sans-serif;color:var(--fg);background:var(--bg);line-height:1.6;overflow-x:hidden}
     a{color:var(--accent);text-decoration:none}
     a:hover{filter:brightness(1.1)}
 
-    /* ====== Layout helpers ====== */
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
     .stack{display:flex;flex-direction:column;gap:32px;margin:64px 0}
 
-    /* ====== Navbar ====== */
-    .Navbar{
-      position:fixed;top:0;left:0;right:0;z-index:50;
-      backdrop-filter:saturate(150%) blur(8px);
-      background:linear-gradient(180deg, rgba(10,15,20,.8), rgba(10,15,20,.35) 70%, rgba(10,15,20,0));
-      border-bottom:1px solid rgba(4,212,212,.15);
-    }
+    .Navbar{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:saturate(150%) blur(8px);background:linear-gradient(180deg, rgba(10,15,20,.8), rgba(10,15,20,.35) 70%, rgba(10,15,20,0));border-bottom:1px solid rgba(4,212,212,.15)}
     .nav-inner{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:14px 0}
     .nav-left{display:flex;align-items:center;gap:16px}
     .brand{font-weight:700;letter-spacing:.4px}
-    .nav-link{color:var(--accent);opacity:1;transition:filter .15s ease, text-shadow .15s ease}
+    .nav-link{color:var(--accent);transition:filter .15s ease,text-shadow .15s ease}
     .nav-link:hover,.nav-link:focus{filter:brightness(1.08);text-shadow:0 0 12px rgba(4,212,212,.5)}
 
-    /* ====== Hero (video) ====== */
     #Home{position:relative;height:72vh;min-height:460px;margin-top:64px}
     #Video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(105%) contrast(105%)}
     .overlay{position:absolute;inset:0;background:radial-gradient(120% 110% at 50% 15%, rgba(4,212,212,.25) 0%, rgba(124,58,237,.18) 35%, rgba(10,15,20,.80) 70%)}
     .Video_Text{position:relative;z-index:2;height:100%;display:flex;align-items:center}
-    .hero-card{
-      background:rgba(15,23,32,.65);
-      border:1px solid rgba(4,212,212,.25);
-      box-shadow:var(--shadow);
-      border-radius:var(--radius);
-      padding:28px;
-      max-width:920px;
-    }
-    h1{margin:0 0 10px 0;font-size:clamp(28px,4.2vw,44px);text-transform:uppercase;text-align:left;letter-spacing:.6px;color:#fff;text-shadow:0 0 22px rgba(4,212,212,.55)}
+    .hero-card{background:rgba(15,23,32,.65);border:1px solid rgba(4,212,212,.25);box-shadow:var(--shadow);border-radius:var(--radius);padding:28px;max-width:920px}
+    h1{margin:0 0 10px 0;font-size:clamp(28px,4.2vw,44px);text-transform:uppercase;color:#fff;text-shadow:0 0 22px rgba(4,212,212,.55)}
     .lead{color:var(--muted)}
 
-    /* ====== Buttons (single style for all) ====== */
     .buttons{display:flex;flex-wrap:wrap;gap:12px}
-    .btn,
-    .nav-cta{ /* nav links share hover/active feel */
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 16px;border-radius:999px;border:1px solid rgba(4,212,212,.5);
-      color:#0b1a1f;background:linear-gradient(180deg, rgba(4,212,212,.95), rgba(4,212,212,.8));
-      font-weight:600;box-shadow:0 6px 18px rgba(4,212,212,.22);
-      transition:transform .15s ease, filter .15s ease, box-shadow .15s ease;
-    }
-    .btn:hover,.nav-cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
-    .btn:active,.nav-cta:active{transform:translateY(0);filter:brightness(.98)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:999px;border:1px solid rgba(4,212,212,.5);color:#0b1a1f;background:linear-gradient(180deg, rgba(4,212,212,.95), rgba(4,212,212,.8));font-weight:600;box-shadow:0 6px 18px rgba(4,212,212,.22);transition:transform .15s ease, filter .15s ease}
+    .btn:hover{transform:translateY(-1px);filter:brightness(1.03)}
+    .btn:active{transform:translateY(0);filter:brightness(.98)}
 
-    /* ====== Cards & Images ====== */
     section{scroll-margin-top:90px}
-    .card{
-      background:var(--card);
-      border:1px solid rgba(124,58,237,.15);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:24px;
-    }
+    .card{background:var(--card);border:1px solid rgba(124,58,237,.15);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
     img{max-width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
 
-    /* Sandwich gallery (3 photos side by side) */
     .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    @media(max-width:640px){.gallery{grid-template-columns:repeat(3,1fr)}} /* keep 3 across on small screens per request */
+    @media(max-width:640px){.gallery{grid-template-columns:1fr}}
 
-    /* ====== Footer ====== */
     footer{margin:64px 0 40px 0;color:var(--muted);text-align:center}
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <nav class="Navbar">
     <div class="container nav-inner">
       <div class="nav-left">
@@ -106,22 +61,16 @@
     </div>
   </nav>
 
-  <!-- Hero with background video -->
   <header id="Home">
     <video autoplay muted loop id="Video" playsinline>
       <source src="images/video.mp4" type="video/mp4" />
-      Your browser does not support HTML5 video.
     </video>
     <div class="overlay"></div>
     <div class="container Video_Text">
       <div class="hero-card">
         <h1>Morgan Lucero's Portfolio</h1>
-        <p class="lead">
-          <q>Wisdom is not a product of schooling but of the lifelong attempt to acquire it.</q><br/>— Albert Einstein
-        </p>
+        <p class="lead"><q>Wisdom is not a product of schooling but of the lifelong attempt to acquire it.</q><br/>— Albert Einstein</p>
         <p class="lead">Welcome—explore my background, experience, and hands‑on security work.</p>
-        
-        <!-- Single CTA section (only place for buttons) -->
         <div class="buttons" style="margin-top:10px">
           <a href="projects.html" class="btn">View My Projects</a>
           <a href="https://docs.google.com/document/d/1nS7XS1bc5AvvSdDb_deY26wcf18DyEKcd9okRtHxuQc/view?usp=sharing" class="btn" target="_blank" rel="noopener noreferrer">View My Resume</a>
@@ -132,34 +81,24 @@
     </div>
   </header>
 
-  <!-- "Sandwich" layout -->
   <main class="container stack">
-    <!-- Top bun: About (full-width card) -->
     <section id="About" class="card">
-      <h2 style="margin-top:0">About</h2>
-      <p>
-        I am a U.S. Army Veteran pursuing a career in Cyber Security. I served as an Intelligence Analyst with a Top Secret/SCI clearance and earned an Associate's Degree in Criminal Justice. I’m passionate about service, protection, and thinking like the adversary. As a husband and father of two, I enjoy camping, kayaking, and hiking.
-      </p>
-      <p>
-        I’m a graduate of <a href="https://www.learncodinganywhere.com" target="_blank" rel="noopener noreferrer">The Tech Academy</a>’s Cyber Security Boot Camp. My work spans Hardware & Network Security, Front‑End Development & Security, Back‑End Security, and core Cyber Security concepts. I build with HTML & CSS and document findings through structured incident reports and live‑project exercises.
-      </p>
-      <p>
-        I’m motivated to launch my career in Cyber Security—feel free to <a href="#Contact">contact me below</a>.
-      </p>
+      <h2>About</h2>
+      <p>I am a U.S. Army Veteran pursuing a career in Cyber Security. I served as an Intelligence Analyst with a Top Secret/SCI clearance and earned an Associate's Degree in Criminal Justice. I’m passionate about service, protection, and thinking like the adversary. As a husband and father of two, I enjoy camping, kayaking, and hiking.</p>
+      <p>I’m a graduate of <a href="https://www.learncodinganywhere.com" target="_blank" rel="noopener noreferrer">The Tech Academy</a>’s Cyber Security Boot Camp. My work spans Hardware & Network Security, Front‑End Development & Security, Back‑End Security, and core Cyber Security concepts. I build with HTML & CSS and document findings through structured incident reports and live‑project exercises.</p>
+      <p>I’m motivated to launch my career in Cyber Security—feel free to <a href="#Contact">contact me below</a>.</p>
     </section>
 
-    <!-- Burger: 3 photos in a row (using your exact filenames) -->
     <section aria-label="Featured images">
       <div class="gallery">
-        <img src="images/malware analysis1.png" alt="Wireshark screenshot 1" />
-        <img src="images/malware traffic.1.png" alt="Wireshark screenshot 2" />
-        <img src="images/malware traffic.png" alt="Wireshark screenshot 3" />
+        <img src="images/image-1.jpg" alt="Abstract colorful code imagery" />
+        <img src="images/github-1.png" alt="GitHub logo" />
+        <img src="images/contact.jpg" alt="Contact" />
       </div>
     </section>
 
-    <!-- Bottom bun: Contact (full-width card) -->
     <section id="Contact" class="card">
-      <h2 style="margin-top:0">Contact</h2>
+      <h2>Contact</h2>
       <form action="" method="POST">
         <label for="name">Name:</label>
         <input id="name" type="text" placeholder="Please enter your name here" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1520;color:#fff;margin:8px 0 16px 0" />
@@ -175,7 +114,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; Prosper Consulting Inc. — <a href="https://www.learncodinganywhere.com/" target="_blank" rel="noopener noreferrer">The Tech Academy</a></p>
   </footer>
